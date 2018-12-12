@@ -3,10 +3,11 @@
 class APIKeysVerifier
 
   def initialize(params = {})
+    p params
     @kid = params[:kid]
     @signature = params[:signature]
     @nonce = params[:nonce] || nil
-    @api_key = APIKey.active.find_by!(kid: @kid)
+    @api_key = APIKey.find_by!(kid: @kid)
   end
 
   def verify_hmac_payload?
