@@ -1,0 +1,20 @@
+defaults: &defaults
+  TIMEZONE: 'Paris'
+  # Customize page metadata like title, description & keywords for landing, cabinet & admin modules.
+  METADATA_TITLE:       Peatio Exchange
+  METADATA_DESCRIPTION: The Opensource Cryptocurrency Exchange
+  METADATA_KEYWORDS:    Peatio,Opensource,Exchange,Cryptocurrency
+
+
+development:
+  <<: *defaults
+
+  GEE_TEST_ID: be3e0482c88ece6c023184756512142e
+
+  GEE_TEST_KEY: b99c7e78240c194563903efd6b61079f
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
