@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get  'security',            to: 'security#enable'
   post 'security/confirm',    to: 'security#confirm'
 
+  get 'gee_test_register',    to: 'geetest#register'
+
   get 'health/alive', to: 'health#alive'
   get 'health/ready', to: 'health#ready'
 
