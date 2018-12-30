@@ -1,59 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Barong</title>
+  <link href="/favicon.ico" rel="shortcut icon" />
+
+  <%= render 'layouts/shared/meta' %>
+  <%= render 'layouts/shared/sentry' %>
   <%= csrf_meta_tags %>
+
+  <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
+  <%= stylesheet_link_tag stylesheet, media: 'all' %>
 
   <%= stylesheet_link_tag    'web', media: 'all' %>
   <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
   <%= javascript_include_tag 'web' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag 'gt' %>
   <%= domain_favicon_tag %>
 </head>
-<body class="devise">
-  <%= domain_html_tag(domain_asset :header) %>
+<body class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
 
-  <div class="container-fluid">
+<div id="wrap">
+  <%= content_for?(:header) ? yield(:header) : render('layouts/shared/header_peatio') %>
+  <%= content_for?(:frame) ? yield(:frame) : render('layouts/shared/frame') %>
 
-    <div class="row justify-content-center">
-      <div class="col-xs-10 col-sm-8 col-md-6 col-lg-2">
-        <div class="main-logo">
-          <%= link_to domain_logo_tag(domain_asset :logo), index_path %>
-        </div>
-      </div>
-    </div>
+  <div id="push"></div>
+</div>
+<%= content_for?(:footer) ? yield(:footer) : render('layouts/shared/footer_peatio') %>
 
-    <div class="row justify-content-center">
-      <div class="mt-5 mb-5 mx-4 main-card">
-        <div class="card">
-
-          <% unless alert.blank? %>
-            <span class="alert alert-danger mb-0">
-              <i class="icon icon-cancel-circled"></i> <h3><%= alert %></h3>
-            </span>
-          <% end %>
-
-          <% unless notice.blank? %>
-            <span class="alert alert-success mb-0">
-              <i class="icon icon-cancel-circled"></i> <h3><%= notice %></h3>
-            </span>
-          <% end %>
-
-          <div classs="pt-2">
-            <%= yield %>
-          </div>
-
-          <% if account_signed_in? %>
-            <%= render 'layouts/shared/account_footer' %>
-          <% else %>
-            <%= render 'devise/shared/footer' %>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <%= domain_html_tag(domain_asset :footer) %>
 </body>
 </html>
