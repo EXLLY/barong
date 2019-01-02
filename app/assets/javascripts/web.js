@@ -40,18 +40,43 @@ window.onload = function () {
       }
   });
     var handler1 = function (captchaObj) {
-        $('#log-in').click(function (e) {
-            var result = captchaObj.getValidate();
-            console.log("== result: " + result);
-            if (!result) {
-                alert('Please conduct man-machine verification!')
-                e.preventDefault();
-            }
-        });
-        // Add the captcha to the element with the id captcha, and there are three input values for the form submission
-        captchaObj.appendTo("#captcha1");
         captchaObj.onReady(function () {
-            $("#wait1").hide();
+            $("#wait").hide();
+        }).onSuccess(function (){
+        var result = captchaObj.getValidate();
+            console.log("== result geetest_challenge: " + result.geetest_challenge);
+            if (!result) {
+               return alert('Please conduct man-machine verification!')
+                // e.preventDefault();
+            }
+            $("#geetest_challenge").val(result.geetest_challenge);
+            $("#geetest_validate").val(result.geetest_validate);
+            $("#geetest_seccode").val(result.geetest_seccode);
+            console.log("== geetest_challenge: " + $("#geetest_challenge").val());
+            $.ajax({
+                headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+                url: '/accounts/sign_in',
+                type: 'POST',
+                dataType: 'json',
+                // data: {
+                //     email: $('#email').val(),
+                //     password: $('#password').val(),
+                //     geetest_challenge: result.geetest_challenge,
+                //     geetest_validate: result.geetest_validate,
+                //     geetest_seccode: result.geetest_seccode
+                // },
+                data: $('#new_account').serialize(),
+                success: function (data) {
+                   console.log("$$$$$$$$$$$:" +data.toString());
+                },
+                error :function(){
+                    console.log("$#######:error");
+                }
+            });
+        });
+
+        $('#log-in').click(function () {
+            captchaObj.verify();
         });
         // more configuration：http://www.geetest.com/install/sections/idx-client-sdk.html
     };
@@ -65,7 +90,7 @@ window.onload = function () {
                 challenge: data.challenge,
                 new_captcha: data.new_captcha, // an outage of a new captcha is indicated when used for an outage
                 offline: !data.success,
-                product: "popup", // product：float，popup
+                product: "bind", // product：float，popup
                 lang: 'en',
                 width: "100%"
                 // more configuration ：http://www.geetest.com/install/sections/idx-client-sdk.html#config

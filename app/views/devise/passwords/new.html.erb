@@ -1,30 +1,30 @@
-<% content_for :guide_title do %>
-  <h3 class="profile-email">
-    <!--    <i class="fa fa-user"></i><span><%#= current_account.email %></span>-->
-  </h3>
-<% end %>
 
 <% content_for :guide do %>
-<div class="row justify-content-center">
-  <div class="container-fluid box-shadow mx-3">
-    <div class="mb-3">
-      <h2 class="title font-weight-bold">Password Recovery</h2>
+  <div class="mask-fixed">
+    <div class="mask-content">
+      <div class="register-container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= (t 'password.find_password') %></h3>
+          </div>
+          <div class="panel-body">
+            <div class="find-password">
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+             <%= devise_error_messages! %>
+            <div class="form-group">
+                <%= f.label :email, for:'inputEmail' %>
+                <%= f.email_field :email, autofocus: true, id:'inputEmail', autocomplete: 'email', class: 'form-control', placeholder: (t 'session.email_placeholder')%>
+            </div>
+
+            <div class="form-group mask-form-button">
+              <%= f.submit (t 'password.submit') , class: 'btn btn-primary btn-block' %>
+            </div>
+          <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="container-fluid px-5 py-4">
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg underlined', placeholder: 'Enter your email' %>
-      </div>
-
-      <div class="mt-4">
-        <%= f.submit 'reset password', class: 'btn btn-block btn-success col-6' %>
-      </div>
-    <% end %>
-  </div>
-</div>
 <% end %>
+

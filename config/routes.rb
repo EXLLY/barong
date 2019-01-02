@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :accounts, controllers: { sessions: :sessions,
                                        confirmations: :confirmations }
-  devise_scope :account do
-    match 'accounts/sign_in/confirm', to: 'sessions#confirm', via: %i[get post]
-  end
+  # devise_scope :account do
+  #   match 'accounts/sign_in/confirm', to: 'sessions#confirm', via: %i[get post]
+  # end
 
   root to: 'index#index', as: :index
 

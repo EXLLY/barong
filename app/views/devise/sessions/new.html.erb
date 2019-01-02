@@ -1,43 +1,42 @@
-<% content_for :guide_title do %>
-  <h3 class="profile-email">
-<!--    <i class="fa fa-user"></i><span>Sign in</span>-->
-  </h3>
-<% end %>
-
 <% content_for :guide do %>
-<div class="row justify-content-center">
-  <div class="container-fluid box-shadow mx-3">
-    <div class="mb-3">
-      <h2 class="title font-weight-bold">Sign in</h2>
-    </div>
-  </div>
-
-  <div class="container-fluid mx-3 px-5 py-4">
-    <%= form_for(resource, as: resource_name, url: accounts_sign_in_confirm_path) do |f| %>
-      <%= devise_error_messages! %>
-
-      <div id="email-form">
-        <div class="form-group">
-          <div class="row">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: 'email',
-                                      class: 'px-1 form-control form-control-lg underlined',
-                                      placeholder: 'Enter email', required: true %>
+<div class="mask-fixed">
+  <div class="mask-content">
+    <div class="login-container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="secure-url">
+            <p> <%= (t 'session.secure_url') %></p>
+            <span class="secure-lock"><%= (t 'session.secure_lock') %></span>
+          </div>
+          <%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
+          <%= devise_error_messages! %>
+          <input type="hidden" id="geetest_challenge" name="geetest_challenge" value="" />
+          <input type="hidden" id="geetest_validate" name="geetest_validate" value="" />
+          <input type="hidden" id="geetest_seccode" name="geetest_seccode" value="" />
+          <div class="form-group">
+            <%= f.label :email, for: 'inputEmail1' %>
+            <%= f.email_field :email,id: 'inputEmail1',  autofocus: true, autocomplete: 'email',
+                                      class: 'form-control',
+                                      placeholder: (t 'session.email_placeholder'), required: true %>
+          </div>
+          <div class="form-group">
+              <%= f.label :password, for: 'inputPassword1'  %>
+              <%= f.password_field :password, id: 'inputPassword1', autofocus: true, autocomplete: 'off',
+                                   class: 'form-control',
+                                   placeholder: (t 'session.password_placeholder') %>
+          </div>
+          <div class="form-group login-button">
+            <%#= submit_tag 'LOGIN', class: 'btn btn-primary btn-block',id: 'log-in'%>
+            <button type="button" class="btn btn-primary btn-block" id="log-in"><%= (t 'session.login') %></button>
+            <div class="row">
+              <div class="col-md-6"><a href="<%= new_account_registration_path %>"><%= (t 'session.register') %></a></div>
+              <div class="col-md-6 text-right"><a href="<%= new_account_password_path %>"><%= (t 'session.forgot') %></a></div>
+            </div>
           </div>
         </div>
-        <div>
-          <label>complete the verification：</label>
-          <div id="captcha1">
-            <p id="wait1" class="show">Loading verification code......</p>
-          </div>
-        </div>
-        <br>
-        <div class="row mt-4 d-flex justify-content-between">
-          <%= submit_tag 'Submit', class: 'btn btn-success',id: 'log-in'%>
-        </div>
-
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
 <% end %>

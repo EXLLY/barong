@@ -9,22 +9,22 @@
 
   <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
   <%= stylesheet_link_tag stylesheet, media: 'all' %>
-
   <%= stylesheet_link_tag    'web', media: 'all' %>
+  <%= stylesheet_link_tag 'bootstrap.min'%>
+  <%= stylesheet_link_tag 'global' %>
+  <%= stylesheet_link_tag 'index'%>
   <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
   <%= javascript_include_tag 'web' %>
-
+  <%= javascript_include_tag 'gt' %>
   <%= domain_favicon_tag %>
 </head>
-<body class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
+<body  data-lang="<%= locale_name %>" id="<%= body_id %>">
+<%= domain_html_tag(domain_asset :header) %>
+<div class="flex-box vertical g-background home-index">
 
-<div id="wrap">
-  <%= content_for?(:header) ? yield(:header) : render('layouts/shared/header_peatio') %>
+  <%= content_for?(:header) ? yield(:header) : render('layouts/shared/header') %>
   <%= content_for?(:frame) ? yield(:frame) : render('layouts/shared/frame') %>
-
-  <div id="push"></div>
+  <%= content_for?(:footer) ? yield(:footer) : render('layouts/shared/footer') %>
 </div>
-<%= content_for?(:footer) ? yield(:footer) : render('layouts/shared/footer_peatio') %>
-
 </body>
 </html>

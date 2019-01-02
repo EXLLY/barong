@@ -69,16 +69,19 @@ en:
         otp_code: OTP code
         jwt: JWT
   header:
+    login: LOGIN
+    signup: REGISTER
     home: Home
     dashboard: Dashboard
     admin: Admin Panel
     market: Trade
     settings: Profile
     signout: Exit
-    funds: Funds
+    funds: FUNDS
     getstart: Markets
     history: History
-    order_history: Order History
+    order_history: ORDERS
+    engllish: ENGLISH
     trade_history: Trade History
     account_history: Account History
     my_profile: My Profile
@@ -86,3 +89,21 @@ en:
     total: Total
     deposit: Deposit
     withdraw: Withdraw
+  session:
+    secure_url: Please confirm the URL https://galleon.com
+    secure_lock: Secure | https://www.galleon.com
+    email: Email
+    password: Password
+    email_placeholder: Please input the email
+    password_placeholder: Please input the password
+    login: LOGIN
+    register: Register
+    forgot: Forgot password?
+  registration:
+    confirm_password:  Confirm password
+    password_confirmation: Password confirmation
+    agree: I have read and agree to the
+    terms: Terms of Use
+  password:
+    find_password: FIND PASSWORD
+    submit: SUBMIT
