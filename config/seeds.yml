@@ -29,9 +29,9 @@ levels:
   - key: email
     value: verified
     description: "User clicked on the confirmation link"
-  - key: phone
+  - key: 2fa
     value: verified
-    description: "User entered a valid code from sms"
+    description: "User entered a valid code from Google Authentication"
   - key: document
     value: verified
     description: "User personal documents have been verified"

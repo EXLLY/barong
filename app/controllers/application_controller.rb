@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :domain_asset
 
+  before_action :set_language
+
   def domain_asset(item)
     @website ||= Website.find_by_domain(request.domain)
     @website[item] unless @website.nil? || @website[item].nil?
@@ -28,5 +30,12 @@ private
   def vault_exception(exception)
     Rails.logger.error "#{exception.class}: #{exception.message}"
     redirect_to index_path, alert: 'Something wrong with 2FA'
+  end
+
+  def set_language
+    cookies[:lang] = params[:lang] unless params[:lang].blank?
+    cookies[:lang].tap do |locale|
+      I18n.locale = locale if locale.present? && I18n.available_locales.include?(locale.to_sym)
+    end
   end
 end
