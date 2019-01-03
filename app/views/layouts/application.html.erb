@@ -1,58 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      <%= domain_title_tag(domain_asset :title) %>
-    </title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+<head>
+  <link href="/favicon.ico" rel="shortcut icon" />
 
-    <%= stylesheet_link_tag    'web', media: 'all' %>
-    <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
-    <%= javascript_include_tag 'web' %>
+  <%= render 'layouts/shared/meta' %>
+  <%= render 'layouts/shared/sentry' %>
+  <%= csrf_meta_tags %>
 
-    <%= domain_favicon_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body class="devise">
-    <%= domain_html_tag(domain_asset :header) %>
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-xs-10 col-sm-8 col-md-6 col-lg-2">
-          <div class="main-logo">
-            <%= link_to domain_logo_tag(domain_asset :logo), index_path %>
-          </div>
-        </div>
-      </div>
+  <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
+  <%= stylesheet_link_tag stylesheet, media: 'all' %>
+  <%= stylesheet_link_tag    'web', media: 'all' %>
+  <%= stylesheet_link_tag 'bootstrap.min'%>
+  <%= stylesheet_link_tag 'global' %>
+  <%= stylesheet_link_tag 'index'%>
+  <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
+  <%= javascript_include_tag 'web' %>
+  <%= javascript_include_tag 'gt' %>
+  <%= domain_favicon_tag %>
+</head>
+<body  data-lang="<%= locale_name %>" id="<%= body_id %>">
+<%= domain_html_tag(domain_asset :header) %>
+<div class="flex-box vertical g-background home-index">
 
-      <div class="row justify-content-center">
-        <div class="mt-5 mb-5 mx-4 main-card">
-
-          <div class="card">
-
-            <% unless alert.blank? %>
-              <span class="alert alert-danger mb-0">
-                <i class="icon icon-cancel-circled"></i> <h3><%= alert %></h3>
-              </span>
-            <% end %>
-
-            <% unless notice.blank? %>
-              <span class="alert alert-success mb-0">
-                <i class="icon icon-cancel-circled"></i> <h3><%= notice %></h3>
-              </span>
-            <% end %>
-
-            <div classs="pt-2">
-              <%= yield %>
-            </div>
-
-            <% if account_signed_in? %>
-              <%= render 'layouts/shared/account_footer' %>
-            <% end %>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <%= domain_html_tag(domain_asset :footer) %>
-  </body>
+  <%= content_for?(:header) ? yield(:header) : render('layouts/shared/header') %>
+  <%= content_for?(:frame) ? yield(:frame) : render('layouts/shared/frame') %>
+  <%= content_for?(:footer) ? yield(:footer) : render('layouts/shared/footer') %>
+</div>
+</body>
 </html>

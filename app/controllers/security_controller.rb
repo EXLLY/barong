@@ -14,6 +14,7 @@ class SecurityController < ApplicationController
   def confirm
     if Vault::TOTP.validate?(current_account.uid, params[:otp])
       status = current_account.update(otp_enabled: true)
+      current_account.add_level_label('2fa')  if status
       return redirect_to index_path, notice: '2FA is enabled' if status
       redirect_to security_path, alert: current_account.errors.full_messages.to_sentence
     else

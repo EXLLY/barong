@@ -43,4 +43,23 @@ module ApplicationHelper
       "#{lvl.key}:#{lvl.value} scope \"private\"=> account level #{lvl.id}"
     end.join("\n")
   end
+  def locale_name
+    I18n.locale.to_s.downcase
+  end
+
+  def body_id
+    "#{controller_name}-#{action_name}"
+  end
+
+  def guide_panel_title
+    @guide_panel_title || t("guides.#{i18n_controller_path}.#{action_name}.panel", default: t("guides.#{i18n_controller_path}.panel"))
+  end
+
+  def i18n_controller_path
+    @i18n_controller_path ||= controller_path.gsub(/\//, '.')
+  end
+
+  def guide_intro
+    @guide_intro || t("guides.#{i18n_controller_path}.#{action_name}.intro", default: t("guides.#{i18n_controller_path}.intro", default: ''))
+  end
 end

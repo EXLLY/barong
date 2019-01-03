@@ -1,32 +1,45 @@
-<div class="row justify-content-center">
-  <div class="container-fluid box-shadow mx-3">
-    <div class="mb-3">
-      <h2 class="title font-weight-bold">Sign up</h2>
+
+<% content_for :guide do %>
+<div class="mask-fixed">
+  <div class="mask-content">
+    <div class="register-container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="secure-url">
+            <p><%= (t 'session.secure_url') %></p>
+            <span class="secure-lock"><%= (t 'session.secure_lock') %></span>
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.label :email, (t 'session.email') ,for: 'inputEmail'%>
+            <%= f.email_field :email, autofocus: true, id: 'inputEmail', autocomplete: 'email', class: 'form-control', placeholder: (t 'session.email_placeholder') %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, (t 'session.password'), for: 'inputPassword' %>
+            <%= f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: @minimum_password_length ? "Password (#{@minimum_password_length} characters minimum)" : (t 'session.password_placeholder') %>
+          </div>
+
+          <div class="form-group has-error has-feedback">
+            <%= f.label :password_confirmation, (t 'registration.confirm_password'),for: 'inputConfirmPassword' %>
+            <%= f.password_field :password_confirmation, autocomplete: 'off',id: 'inputConfirmPassword' , class: 'form-control', placeholder: (t 'registration.password_confirmation')%>
+            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <% if devise_error_messages! %>
+            <span class="help-block"><%= devise_error_messages!%></span>
+            <% end %>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> <%=(t 'registration.agree') %> <a href="#"> <%=(t 'registration.terms') %> </a>
+            </label>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Submit', class: 'btn btn-primary btn-block' %>
+          </div>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="container-fluid px-5 py-4">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="form-group">
-        <%= f.label :email, 'Email' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg underlined', placeholder: 'Email' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password, 'Password' %>
-        <%= f.password_field :password, autocomplete: 'off', class: 'form-control form-control-lg underlined', placeholder: @minimum_password_length ? "Password (#{@minimum_password_length} characters minimum)" : "Password" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, 'Confirm password' %>
-        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control form-control-lg underlined', placeholder: 'Password confirmation' %>
-      </div>
-
-      <div class="mt-4">
-        <%= f.submit 'Submit', class: 'btn btn-block btn-success col-6' %>
-      </div>
-    <% end %>
-  </div>
 </div>
+<% end %>
