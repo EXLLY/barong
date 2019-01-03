@@ -10,7 +10,6 @@ class SessionsController < Devise::SessionsController
       # Make judgments based on the three parameters that are automatically passed in when the form is submitted.
       result = sdk.success_validate params[:geetest_challenge], params[:geetest_validate], params[:geetest_seccode]
       # If the man-machine verification fails, jump back to the login page
-      Rails.logger.info("*****result#{result}")
       unless result
         return redirect_to(action: :new)
       end

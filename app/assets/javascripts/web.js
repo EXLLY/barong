@@ -44,35 +44,13 @@ window.onload = function () {
             $("#wait").hide();
         }).onSuccess(function (){
         var result = captchaObj.getValidate();
-            console.log("== result geetest_challenge: " + result.geetest_challenge);
             if (!result) {
                return alert('Please conduct man-machine verification!')
-                // e.preventDefault();
             }
             $("#geetest_challenge").val(result.geetest_challenge);
             $("#geetest_validate").val(result.geetest_validate);
             $("#geetest_seccode").val(result.geetest_seccode);
-            console.log("== geetest_challenge: " + $("#geetest_challenge").val());
-            $.ajax({
-                headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
-                url: '/accounts/sign_in',
-                type: 'POST',
-                dataType: 'json',
-                // data: {
-                //     email: $('#email').val(),
-                //     password: $('#password').val(),
-                //     geetest_challenge: result.geetest_challenge,
-                //     geetest_validate: result.geetest_validate,
-                //     geetest_seccode: result.geetest_seccode
-                // },
-                data: $('#new_account').serialize(),
-                success: function (data) {
-                   console.log("$$$$$$$$$$$:" +data.toString());
-                },
-                error :function(){
-                    console.log("$#######:error");
-                }
-            });
+            $("#new_user").submit();
         });
 
         $('#log-in').click(function () {
