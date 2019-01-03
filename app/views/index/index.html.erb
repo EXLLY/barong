@@ -1,44 +1,63 @@
-<% content_for :guide_title do %>
-  <h3 class="profile-email">
-    <!--    <i class="fa fa-user"></i><span><%#= current_account.email %></span>-->
-  </h3>
-<% end %>
-
 <% content_for :guide do %>
-<div class="row justify-content-center">
-
+<div class="container">
   <% if account_signed_in? %>
-
-    <div class="col-xs-12 col-sm-11 col-md-6 mt-5 mb-3">
-      <div class="text-center">
-        <div class="d-flex justify-content-center">
-          <% if current_account.level == 1 %>
-            <%= link_to 'Verify your phone', new_phone_path, class: 'btn btn-primary btn-block mb-4' %>
-          <% end %>
-          <% if current_account.level == 3%>
-            <h2 class="wrap"> Your identity has been successfully approved</h2>
-          <% else %>
-            <h2 class="wrap"> Pending compliance officer approval </h2>
-          <% end %>
+  <%= render partial: 'layouts/shared/overview'%>
+  <div class="row">
+    <div class="flex-box horizontal profile-body">
+      <div class="profile-sidebar">
+        <div class="sidebar-list">
+          <%=link_to (t 'profiles.overview'), '',class:"current" %>
+          <%=link_to (t 'profiles.security'), security_index_path %>
+          <%=link_to (t 'profiles.kyc'), profiles_path(@profile) %>
+        </div>
+      </div>
+      <div class="flex-content">
+        <div class="profile-content">
+          <div class="overview-index">
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <h3> <%= current_account.email %></h3>
+                <span class="warning"><%= (t 'profiles.unverified') %></span>
+              </div>
+              <div class="col-md-9">
+                <ul class="verifi-step step2">
+                  <li><span><%= (t 'profiles.email_verification') %></span><i></i></li>
+                  <li><span><%= (t 'profiles.google_2_step') %></span><i></i></li>
+                  <li><span><%= (t 'profiles.kyc') %></span><i></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="overview-info">
+            <div class="row">
+              <div class="col-md-3"><%= (t 'profiles.2_step') %>:</div>
+              <div class="col-md-3"><%= (t 'profiles.google_authenticator') %></div>
+              <div class="col-md-3"><% unless current_account.otp_enabled %><span class="disable"><%end %><%= (t 'profiles.disable') %></span></div>
+              <div class="col-md-3 text-right"><a href="<%=security_path %>"><%= (t 'profiles.enable') %></a></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"><%= (t 'profiles.withdrawal_limit') %>:</div>
+              <div class="col-md-3">2BTC</div>
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3 text-right"><a href="#"><%= (t 'profiles.increase_limit') %></a></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"><%= (t 'profiles.kyc') %>:</div>
+              <div class="col-md-3"><%= (t 'profiles.completed') %> 0%</div>
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3 text-right"><%=link_to (t 'profiles.complete_kyc'), profiles_path(@profile) %></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-12">
-      <div class="text-center">
-        <div class="wrap">
-          <h2 class="wrap">Signed in as <%= current_account.email %></h2><br/>
-        </div>
-      </div>
-    </div>
-    <%= link_to 'update your password?', edit_account_registration_path%><br />
-    <%= link_to 'google 2-Step', security_path%><br />
-    <% else %>
+  </div>
+  <% else %>
 
-      <h2>You are not signed in.</h2>
-      <br/>
-      <%= link_to 'Sign in', new_account_session_path %> or <%= link_to 'Sign up', new_accountl_registration_path %>
+    <h2>You are not signed in.</h2>
+    <br/>
+    <%= link_to 'Sign in', new_account_session_path %> or <%= link_to 'Sign up', new_accountl_registration_path %>
 
-    <% end %>
-
-</div><br/>
+  <% end %>
+</div>
 <% end %>

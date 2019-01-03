@@ -44,12 +44,15 @@ window.onload = function () {
             $("#wait").hide();
         }).onSuccess(function (){
         var result = captchaObj.getValidate();
+            console.log("== result geetest_challenge: " + result.geetest_challenge);
             if (!result) {
                return alert('Please conduct man-machine verification!')
+                // e.preventDefault();
             }
             $("#geetest_challenge").val(result.geetest_challenge);
             $("#geetest_validate").val(result.geetest_validate);
             $("#geetest_seccode").val(result.geetest_seccode);
+            console.log("== geetest_challenge: " + $("#geetest_challenge").val());
             $("#new_account").submit();
         });
 

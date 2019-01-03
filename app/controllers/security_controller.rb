@@ -22,6 +22,10 @@ class SecurityController < ApplicationController
     end
   end
 
+  def index
+
+  end
+
 private
 
   def check_vault_availability
