@@ -50,7 +50,7 @@ window.onload = function () {
             $("#geetest_challenge").val(result.geetest_challenge);
             $("#geetest_validate").val(result.geetest_validate);
             $("#geetest_seccode").val(result.geetest_seccode);
-            $("#new_user").submit();
+            $("#new_account").submit();
         });
 
         $('#log-in').click(function () {
