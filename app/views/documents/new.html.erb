@@ -1,24 +1,35 @@
-<div class="text-center pt-1">
-  <h2 class="font-weight-bold pt-4 pb-4"><span class="text-muted">Verification > </span>Add document</h2>
-</div>
-
-<div class="d-flex justify-content-center box-shadow">
-  <div class="steps d-flex justify-content-between pb-2 px-5 mb-2">
-    <div class="col-4 step-col first">
-      <div class="step text-muted completed"></div>
-      <small>Email</small>
+<% content_for :guide do %>
+  <div class="container">
+    <% if account_signed_in? %>
+      <%= render partial: 'layouts/shared/overview'%>
+      <div class="row">
+        <div class="flex-box horizontal profile-body">
+          <div class="profile-sidebar">
+            <div class="sidebar-list">
+              <%=link_to (t 'profiles.overview'), index_path%>
+              <%=link_to (t 'profiles.security'), security_index_path %>
+              <%=link_to (t 'profiles.kyc'), profiles_path(@profile), class:"current"  %>
+            </div>
+          </div>
+          <div class="flex-content">
+            <div class="profile-content">
+              <div class="profile-security-head">
+                <h4><%= (t 'profiles.document') %></h4>
+              </div>
+              <div class="profile-kyc-form">
+                <div class="profile-kyc-form-wrap">
+                  <%= render 'form', document: @document %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% else %>
+      <h2><%= (t 'session.not_signed_in') %></h2>
+      <br/>
+      <%= link_to (t 'session.login'), new_account_session_path %> or <%= link_to (t 'session.register'), new_account_registration_path %>
+    <% end %>
     </div>
-    <div class="col-4 step-col">
-      <div class="step text-muted completed"></div>
-      <small>Phone</small>
-    </div>
-    <div class="col-4 step-col last">
-      <div class="step text-muted current"></div>
-      <small>Document</small>
-    </div>
-  </div>
-</div>
-
-<div class="d-flex justify-content-center px-5 py-4">
-  <%= render 'form', document: @document %>
-</div><br/>
+<% end %>

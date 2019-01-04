@@ -31,11 +31,9 @@
         </div>
       </div>
   <% else %>
-
-      <h2>You are not signed in.</h2>
+      <h2><%= (t 'session.not_signed_in') %></h2>
       <br/>
-      <%= link_to 'Sign in', new_account_session_path %> or <%= link_to 'Sign up', new_accountl_registration_path %>
-
+      <%= link_to (t 'session.login'), new_account_session_path %> or <%= link_to (t 'session.register'), new_account_registration_path %>
     <% end %>
   </div>
 <% end %>

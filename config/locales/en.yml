@@ -76,12 +76,12 @@ en:
     admin: Admin Panel
     market: Trade
     settings: Profile
-    signout: Exit
+    signout: LOG OUT
     funds: FUNDS
     getstart: Markets
     history: History
     order_history: ORDERS
-    engllish: ENGLISH
+    english: ENGLISH
     trade_history: Trade History
     account_history: Account History
     my_profile: My Profile
@@ -99,6 +99,7 @@ en:
     login: LOGIN
     register: Register
     forgot: Forgot password?
+    not_signed_in: You are not signed in.
   registration:
     confirm_password:  Confirm password
     password_confirmation: Password confirmation
@@ -107,3 +108,73 @@ en:
   password:
     find_password: FIND PASSWORD
     submit: SUBMIT
+    password: Password
+    new_password: New password
+    confirm_new_password: Confirm new password
+    placeholder_new_password: Please input your new password
+    placeholder_confirm_new_password: Please confirm your new password
+    old_password: Old Password
+    enter_old_password: Enter old password
+    enter_new_password: Enter new password
+    google_code: Google 2-Step verification code
+  profiles:
+    overview: Overview
+    security: Security
+    kyc: KYC Verification
+    unverified: Unverified
+    email_verification: Email Verification
+    google_2_step: google 2-step
+    2_step: 2-Step
+    google_authenticator: Google Authenticator
+    disable: Disable
+    enable: Enable
+    withdrawal_limit: 24h Withdrawal Limit
+    increase_limit: Increase Limit
+    completed: Completed
+    complete_kyc: Complete the KYC information
+    Google_2_Step: Google 2-Gtep
+    settings_incomplete: Settings Incomplete
+    install: Install Google Authenticator
+    app_store: Go to the app store to
+    search: search and install
+    bind_2_step: Bind 2-step verification
+    scan: Scan this QR code in
+      the Google Authentication app
+      If you are unable to scan the QR
+      code, please enter this secret key
+      manually into the app.
+    back_up: Back up the secret key
+    be_sure: Be sure to back up your
+    2_step_secret_key: 2-step secret key
+    enable_google_authentication: Enable Google Authentication
+    google_authentication_code: Google Authentication Code
+    please_save: Please save this Key on paper. this Key
+    waillallow: willallow you to recover your Google
+    in_case: Authentication in case of phone loss.
+    resetting: Resetting your Google Authentication
+    requires: requires customer support and
+    takes: takes at least 7 days to process.
+    please_input: Please input the 6 digtal code
+    submit: SUBMIT
+    after_enable: After enable, Login / Trading
+    withdrawals: Withdrawals need to be
+    google_step: Google-step verification to
+    ensure: ensure account security
+    profile: Profile
+    first_name: First name
+    last_name: Last name
+    dob: Date of birth
+    address: Address
+    city: City
+    postcode: Postcode
+    country: Country
+    document: Document
+    individual_account: Individual Account
+    insitutional_account: Insitutional Account
+    doc_type: Document type
+    doc_expiry: Document expiry
+    expiry_date: Expiry date
+    doc_number: Document number
+    number: AB123456
+    doc_upload: Document upload
+    contact_us: Please contact us on xxxx@xxx.com, we will have customer support to help you with the KYC verification.

@@ -2,7 +2,7 @@
 
 module CountryHelper
   def display_country(selected_country: params[:country],
-                      classes: 'form-control form-control-lg underlined')
+                      classes: 'form-control')
     @countries = ISO3166::Country.all.sort
     collection_select(:profile, :country, @countries, :alpha3, :name,
                       {

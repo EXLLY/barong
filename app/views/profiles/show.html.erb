@@ -15,18 +15,13 @@
             <div class="profile-content">
               <div class="profile-kyc-tabs">
                 <ul class="clearfix">
-                  <li class="active"><a href="#"><%= (t 'profiles.individual_account') %></a></li>
-                  <li><a href="<%= profile_path(1) %>"><%= (t 'profiles.insitutional_account') %></a></li>
+                  <li ><a href="<%= profiles_path(@profile) %>"><%= (t 'profiles.individual_account') %></a></li>
+                  <li class="active"><a href="#"><%= (t 'profiles.insitutional_account') %></a></li>
                 </ul>
               </div>
               <div class="profile-kyc-tabContent">
-                <div class="profile-kyc-link">
-                  <a href="<%= new_profile_path%>" class="profile-kyc-link-pro">
-                    <div><strong><%= (t 'profiles.profile') %></strong></div>
-                  </a>
-                  <a href="<%= new_document_path %>" class="profile-kyc-link-doc">
-                    <div><strong><%= (t 'profiles.document') %></strong></div>
-                  </a>
+                <div class="profile-insitutional">
+                  <p><%= (t 'profiles.contact_us') %></p>
                 </div>
               </div>
             </div>

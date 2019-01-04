@@ -23,6 +23,11 @@ class ProfilesController < ApplicationController
   def index
 
   end
+
+  def help
+
+  end
+
 private
 
   def redirect_if_profile_created
