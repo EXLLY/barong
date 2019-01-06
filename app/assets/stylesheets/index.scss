@@ -291,13 +291,12 @@
   display:inline-block;
   max-width:200px;
   font-size:12px;
+  font-weight:600;
   word-break: break-all;
   word-wrap: break-word;
-  padding-right:22px;
-  color:#469ef1;
-  background-image: url(asset_path('profile/secret-link.png'));
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
+  padding:8px;
+  color:#333;
+  background-color:#eee;
 }
 .profile-security-googleAuth{
   text-align:center;
