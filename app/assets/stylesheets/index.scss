@@ -19,12 +19,16 @@
 .mask-form-button{
   padding-top:40px;
 }
-.mask-form-button .row{padding-top:6px;}
+.mask-form-button .row{
+  padding-top:6px;
+}
 .email-activation{
   text-align:center;
   line-height:2;
 }
-.email-activation .btn{margin:20px 0;}
+.email-activation .btn{
+  margin:20px 0;
+}
 .find-password,
 .reset-password{
   padding-top:30px;
@@ -127,10 +131,18 @@
   border-width:1px 0 0;
   bottom:7px;
 }
-.verifi-step li i:before{left:-50%;margin-left:-8px;}
-.verifi-step li i:after{left:50%;margin-left:8px;}
-.verifi-step li:first-child i:before{display:none;}
-.verifi-step li:last-child i:after{display:none;}
+.verifi-step li i:before{
+  left:-50%;
+  margin-left:-8px;
+}
+.verifi-step li i:after{
+  left:50%;
+  margin-left:8px;
+}
+.verifi-step li:first-child i:before,
+.verifi-step li:last-child i:after{
+  display:none;
+}
 .verifi-step.step1 li:nth-child(1) i{
   border-color:#2e96f0;
   background-color:#FFF;
@@ -277,6 +289,10 @@
 }
 a.secret-link{
   display:inline-block;
+  max-width:200px;
+  font-size:12px;
+  word-break: break-all;
+  word-wrap: break-word;
   padding-right:22px;
   color:#469ef1;
   text-decoration: underline;
@@ -319,11 +335,21 @@ a.secret-link{
   border-width:1px 0 0;
   border-color:#469ef1;
 }
-.profile-security-googleAuth .step:before{left:50%;margin-left:12px;}
-.profile-security-googleAuth .step:after{left:-50%;margin-left:-12px;}
-.profile-security-googleAuth .col-md-3:first-child .step:after{display:none;}
-.profile-security-googleAuth .col-md-3:last-child .step:before{display:none;}
-.profile-security-googleAuth .qrcode{width:100px;}
+.profile-security-googleAuth .step:before{
+  left:50%;
+  margin-left:12px;
+}
+.profile-security-googleAuth .step:after{
+  left:-50%;
+  margin-left:-12px;
+}
+.profile-security-googleAuth .col-md-3:first-child .step:after,
+.profile-security-googleAuth .col-md-3:last-child .step:before{
+  display:none;
+}
+.profile-security-googleAuth .qrcode{
+  width:100px;
+}
 .profile-security-googleAuth .appstore-ios,
 .profile-security-googleAuth .appstore-google{
   display:block;
@@ -334,8 +360,12 @@ a.secret-link{
   background-position: 50% 50%;
   background-size: auto 100%;
 }
-.profile-security-googleAuth .appstore-ios{background-image: url(asset_path('profile/appstore-ios.png'));}
-.profile-security-googleAuth .appstore-google{background-image: url(asset_path('profile/appstore-google.png'));}
+.profile-security-googleAuth .appstore-ios{
+  background-image: url(asset_path('profile/appstore-ios.png'));
+}
+.profile-security-googleAuth .appstore-google{
+  background-image: url(asset_path('profile/appstore-google.png'));
+}
 .profile-security-google-unbind{
   text-align: center;
   padding:40px 0;
