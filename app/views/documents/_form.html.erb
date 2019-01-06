@@ -11,32 +11,35 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="field col-12 ">
-      <label>Document upload</label>
-      <%= form.file_field :upload, id: :document_upload, class: 'dropify', 'data-allowed-file-extensions': 'png jpg jpeg pdf', 'data-max-file-size': '10M', 'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
-      </br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="field col-6">
-      <%= form.label :doc_type, 'Document type' %>
-      <%= form.select(:doc_type, Document::TYPES, {id: :document_doc_type}, {class: 'form-control underlined'}) %>
-    </div>
-
-    <div class="field form-group">
-      <%= form.label :doc_expire, 'Document expiry' %>
-      <div class="down-arrow">
-        <%= form.text_field :doc_expire, id: :document_doc_expire, class: 'datepicker-toggle form-control underlined', 'data-date-format': 'yyyy-mm-dd', 'data-date-start-date': '+1d', placeholder: 'Expiry date' %>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :doc_type, (t 'profiles.doc_type') %>
+        <%= form.select(:doc_type, Document::TYPES, {id: :document_doc_type}, {class: 'form-control'}) %>
+      </div>
+      <div class="form-group">
+        <%= form.label :doc_expire, (t 'profiles.doc_expire') %>
+        <%= form.text_field :doc_expire, id: :document_doc_expire, class: 'form-control', 'data-date-format': 'yyyy-mm-dd', 'data-date-start-date': '+1d', placeholder: (t 'profiles.expiry_date')%>
+      </div>
+      <div class="form-group">
+        <%= form.label :doc_number, (t 'profiles.doc_number') %>
+        <%= form.text_field :doc_number, id: :document_doc_number, class: 'form-control', placeholder: (t 'profiles.number') %>
       </div>
     </div>
-
-    <div class="field form-group col-12">
-      <%= form.label :doc_number, 'Document number' %>
-      <%= form.text_field :doc_number, id: :document_doc_number, class: 'px-1 form-control form-control-lg underlined', placeholder: 'AB123456' %>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Document upload</label>
+        <%= form.file_field :upload, id: :document_upload, class: 'file-upload-drag', 'data-allowed-file-extensions': 'png jpg jpeg pdf', 'data-max-file-size': '10M', 'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
+        </br>
+      </div>
     </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit 'Submit', class: 'btn btn-block btn-success' %>
+  <div class="row profile-kyc-form-btn">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.submit (t 'profiles.submit'), class: 'btn btn-primary btn-block' %>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
   </div>
 <% end %>

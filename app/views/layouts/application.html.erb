@@ -20,7 +20,7 @@
 </head>
 <body  data-lang="<%= locale_name %>" id="<%= body_id %>">
 <%= domain_html_tag(domain_asset :header) %>
-<div class="flex-box vertical g-background home-index">
+<div class="flex-box vertical profile">
 
   <%= content_for?(:header) ? yield(:header) : render('layouts/shared/header') %>
   <%= content_for?(:frame) ? yield(:frame) : render('layouts/shared/frame') %>

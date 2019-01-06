@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SecurityController < ApplicationController
-  before_action :check_otp_enabled
+  before_action :check_otp_enabled, except: [:index, :preUnbind, :unbind, :unbindConfirm]
   before_action :check_vault_availability
 
   def enable
@@ -14,11 +14,37 @@ class SecurityController < ApplicationController
   def confirm
     if Vault::TOTP.validate?(current_account.uid, params[:otp])
       status = current_account.update(otp_enabled: true)
-      current_account.add_level_label('2fa')  if status
+      # current_account.add_level_label('2fa')  if status
       return redirect_to index_path, notice: '2FA is enabled' if status
       redirect_to security_path, alert: current_account.errors.full_messages.to_sentence
     else
       redirect_to security_path, alert: 'Code is invalid'
+    end
+  end
+
+  def index
+
+  end
+
+  def preUnbind
+
+  end
+
+  def unbind
+
+  end
+
+  def unbindConfirm
+    if Vault::TOTP.validate?(current_account.uid, params[:otp])
+      # unless current_account.authenticate(params[:password])
+      #   redirect_to security_unbind_path, alert: 'password is invalid'
+      # end
+      status = current_account.update(otp_enabled: false)
+      # current_account.add_level_label('2fa')  if status
+      return redirect_to security_unbind_path, notice: '2FA is disabled' if status
+      redirect_to index_path, alert: current_account.errors.full_messages.to_sentence
+    else
+      redirect_to security_unbind_path, alert: 'Code is invalid'
     end
   end
 

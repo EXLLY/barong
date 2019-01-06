@@ -1,40 +1,55 @@
-<% content_for :guide_title do %>
-  <h3 class="profile-email">
-    <!--    <i class="fa fa-user"></i><span><%#= current_account.email %></span>-->
-  </h3>
-<% end %>
 
 <% content_for :guide do %>
-<div class="row justify-content-center">
-  <div class="container-fluid box-shadow mx-3">
-    <div class="mb-3">
-      <h2 class="title font-weight-bold">Change password</h2>
+
+<div class="container">
+  <% if account_signed_in? %>
+    <%= render partial: 'layouts/shared/overview'%>
+    <div class="row">
+      <div class="flex-box horizontal profile-body">
+        <div class="profile-sidebar">
+          <div class="sidebar-list">
+            <%=link_to (t 'profiles.overview'), index_path%>
+            <%=link_to (t 'profiles.security'), security_index_path  ,class:"current" %>
+            <%=link_to (t 'profiles.kyc'), profiles_path(@profile) %>
+          </div>
+        </div>
+        <div class="flex-content">
+          <div class="profile-content">
+            <div class="profile-security-head">
+              <h4><%=(t 'profiles.Google_2_Step')%></h4>
+            </div>
+            <div class="profile-security-google-unbind">
+              <div class="google-unbind">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= devise_error_messages! %>
+                  <div class="form-group">
+                      <%= f.label :current_password, (t 'password.old_password') %>
+                      <%= f.password_field :current_password, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.enter_old_password') %>
+                  </div>
+                  <div class="form-group">
+                      <%= f.label :password, (t 'password.new_password') %>
+                      <%= f.password_field :password, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.enter_new_password') %>
+                  </div>
+                  <div class="form-group">
+                      <%= f.label :password_confirmation, (t 'password.confirm_new_password') %>
+                      <%= f.password_field :password_confirmation, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.placeholder_confirm_new_password') %>
+                  </div>
+                  <% if current_account.otp_enabled %>
+                    <div class="form-group">
+                      <%= label_tag :otp, (t 'password.google_code') %>
+                      <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
+                    </div>
+                  <% end %>
+                  <div class="form-group google-unbind-btn">
+                    <%= f.submit  "SUBMIT", class: "btn btn-primary btn-block" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="container-fluid justify-content-center px-5 py-4">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="form-group">
-          <%= f.label :current_password, 'Old Password' %>
-          <%= f.password_field :current_password, autocomplete: 'off',  class: "px-1 form-control form-control-lg underlined", placeholder: 'Enter old password' %>
-      </div>
-
-      <div class="form-group">
-          <%= f.label :password, 'New password' %>
-          <%= f.password_field :password, autocomplete: 'off',  class: "px-1 form-control form-control-lg underlined", placeholder: 'Enter new password' %>
-      </div>
-
-      <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: 'off',  class: "px-1 form-control form-control-lg underlined", placeholder: 'Enter new password' %>
-      </div>
-
-      <div class="d-flex justify-content-between mt-4">
-        <%= f.submit  "CHANGE", class: "btn btn-primary btn-block btn-success btn-phone col-6" %>
-      </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
 <% end %>

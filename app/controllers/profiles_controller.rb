@@ -20,6 +20,14 @@ class ProfilesController < ApplicationController
     redirect_to new_document_path
   end
 
+  def index
+
+  end
+
+  def help
+
+  end
+
 private
 
   def redirect_if_profile_created
@@ -27,7 +35,7 @@ private
   end
 
   def check_account_level
-    redirect_to new_phone_path if current_account.level < 2
+    redirect_to security_path if current_account.level < 2
   end
 
   def profile_params

@@ -1,0 +1,42 @@
+<% content_for :guide do %>
+  <div class="container">
+    <% if account_signed_in? %>
+      <%= render partial: 'layouts/shared/overview'%>
+      <div class="row">
+        <div class="flex-box horizontal profile-body">
+          <div class="profile-sidebar">
+            <div class="sidebar-list">
+              <%=link_to (t 'profiles.overview'), index_path%>
+              <%=link_to (t 'profiles.security'), security_index_path %>
+              <%=link_to (t 'profiles.kyc'), '', class:"current"  %>
+            </div>
+         </div>
+          <div class="flex-content">
+            <div class="profile-content">
+              <div class="profile-kyc-tabs">
+                <ul class="clearfix">
+                  <li class="active"><a href="#"><%= (t 'profiles.individual_account') %></a></li>
+                  <li><a href="<%= profile_path(1) %>"><%= (t 'profiles.insitutional_account') %></a></li>
+                </ul>
+              </div>
+              <div class="profile-kyc-tabContent">
+                <div class="profile-kyc-link">
+                  <a href="<%= new_profile_path%>" class="profile-kyc-link-pro">
+                    <div><strong><%= (t 'profiles.profile') %></strong></div>
+                  </a>
+                  <a href="<%= new_document_path %>" class="profile-kyc-link-doc">
+                    <div><strong><%= (t 'profiles.document') %></strong></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <h2><%= (t 'session.not_signed_in') %></h2>
+      <br/>
+      <%= link_to (t 'session.login'), new_account_session_path %> or <%= link_to (t 'session.register'), new_account_registration_path %>
+    <% end %>
+  </div>
+<% end %>

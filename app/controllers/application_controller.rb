@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include ApiHelper
   protect_from_forgery with: :exception
 
   alias current_user current_account # CanCanCan expects current_user.
