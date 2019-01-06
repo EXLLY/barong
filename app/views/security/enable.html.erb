@@ -46,7 +46,7 @@
                 <p><%= (t 'profiles.google_authentication_code') %>:</p>
                   <%= form_tag(security_confirm_path) do  %>
                     <div class="form-group">
-                      <input type="text" class="form-control text-center" placeholder="<%= (t 'profiles.please_input') %>">
+                      <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
                     </div>
                     <div class="form-group">
                       <%= submit_tag (t 'profiles.submit'), class: 'btn btn-primary btn-block', data: { confirm: 'Do you agree? If you lost your device you will need to verify your access' } %>

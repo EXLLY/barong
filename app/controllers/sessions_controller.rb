@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class SessionsController < Devise::SessionsController
   prepend_before_action :otp_verify, if: :otp_enabled?, only: :create
 
@@ -19,8 +18,16 @@ class SessionsController < Devise::SessionsController
 
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
+
     @otp_enabled = otp_enabled?
+    #TODO
+    # overiew
+
     super
+  end
+
+  def confirm
+    self.resource = resource_class.new({"email"=>session[:email], "password"=>session[:pwd]})
   end
 
 private
@@ -30,15 +37,31 @@ private
   end
 
   def otp_verify
-    return if Vault::TOTP.validate?(account_by_email.uid, params[:otp])
-
-    set_flash_message! :alert, :wrong_otp_code
-    redirect_to accounts_sign_in_confirm_path
+    if params[:otp]
+      return if Vault::TOTP.validate?(account_by_email.uid, params[:otp])
+      set_flash_message! :alert, :wrong_otp_code
+      redirect_to accounts_sign_in_confirm_path
+    else
+      session[:email] = resource_params[:email]
+      session[:pwd] = resource_params[:password]
+      redirect_to accounts_sign_in_confirm_path
+    end
   rescue Vault::HTTPClientError => e
     redirect_to new_account_session_path, alert: "Vault error: #{e.errors.join}"
   end
 
   def account_by_email
     Account.kept.find_by_email(resource_params[:email])
+  end
+
+  def overiew
+    token = jwt_for(current_account)
+    api_get account_variables_url, token: token
+    result = JSON.parse(response.body)
+  end
+
+  def account_variables_url
+    url = URI.parse(ENV.fetch('PLATFORM_ROOT_URL'))
+    url = URI.join(url, 'api/v2/accounts/')
   end
 end

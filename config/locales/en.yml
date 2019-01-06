@@ -127,12 +127,13 @@ en:
     2_step: 2-Step
     google_authenticator: Google Authenticator
     disable: Disable
+    unbind: Unbind
     enable: Enable
     withdrawal_limit: 24h Withdrawal Limit
     increase_limit: Increase Limit
     completed: Completed
     complete_kyc: Complete the KYC information
-    Google_2_Step: Google 2-Gtep
+    Google_2_Step: Google 2-Step
     settings_incomplete: Settings Incomplete
     install: Install Google Authenticator
     app_store: Go to the app store to
@@ -178,3 +179,6 @@ en:
     number: AB123456
     doc_upload: Document upload
     contact_us: Please contact us on xxxx@xxx.com, we will have customer support to help you with the KYC verification.
+    safety: For your account safety, please do not uninstall Google Authenticator or unbind Google 2-FA,
+    otherwise: otherwise your account and assets could at risk of been hacked.
+    unbind_g: Unbind Google 2-step verification

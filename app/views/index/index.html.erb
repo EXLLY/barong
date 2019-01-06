@@ -32,8 +32,20 @@
             <div class="row">
               <div class="col-md-3"><%= (t 'profiles.2_step') %>:</div>
               <div class="col-md-3"><%= (t 'profiles.google_authenticator') %></div>
-              <div class="col-md-3"><% unless current_account.otp_enabled %><span class="disable"><%end %><%= (t 'profiles.disable') %></span></div>
-              <div class="col-md-3 text-right"><a href="<%=security_path %>"><%= (t 'profiles.enable') %></a></div>
+              <div class="col-md-3">
+                <% if current_account.otp_enabled %>
+                  <span><%= (t 'profiles.enable') %></span>
+                <%else %>
+                  <span class="disable"><%= (t 'profiles.disable') %></span>
+                <%end %>
+              </div>
+              <div class="col-md-3 text-right">
+                <% if current_account.otp_enabled %>
+                  <a href="<%= security_preUnbind_path %>"><%= (t 'profiles.unbind') %></a>
+                <%else %>
+                  <a href="<%=security_path %>"><%= (t 'profiles.enable') %></a>
+                <%end %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-3"><%= (t 'profiles.withdrawal_limit') %>:</div>

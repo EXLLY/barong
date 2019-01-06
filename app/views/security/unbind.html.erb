@@ -1,0 +1,48 @@
+<% content_for :guide do %>
+  <div class="container">
+    <% if account_signed_in? %>
+      <%= render partial: 'layouts/shared/overview'%>
+      <div class="row">
+        <div class="flex-box horizontal profile-body">
+          <div class="profile-sidebar">
+            <div class="sidebar-list">
+              <%=link_to (t 'profiles.overview'), index_path%>
+              <%=link_to (t 'profiles.security'), '' ,class:"current" %>
+              <%=link_to (t 'profiles.kyc'), profiles_path(@profile) %>
+            </div>
+          </div>
+          <div class="flex-content">
+            <div class="profile-content">
+              <div class="profile-security-head">
+                <h4><%= (t 'profiles.Google_2_Step') %></h4>
+              </div>
+              <div class="profile-security-google-unbind">
+                <div class="google-unbind">
+                  <%= form_tag(security_unbindConfirm_path) do  %>
+                    <div class="form-group">
+                      <%= label_tag :password, (t 'password.password')  %>
+                      <%= password_field_tag :password,'', autocomplete: 'off', class: 'form-control', placeholder: ""  %>
+                    </div>
+                    <div class="form-group">
+                      <%= label_tag :otp, (t 'password.google_code') %>
+                      <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
+                    </div>
+                    <div class="form-group">
+                      <%= submit_tag (t 'profiles.submit'), class: 'btn btn-primary btn-block', data: { confirm: 'Do you agree? If you lost your device you will need to verify your access' } %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <h2><%= (t 'session.not_signed_in') %></h2>
+      <br/>
+      <%= link_to (t 'session.login'), new_account_session_path %> or <%= link_to (t 'session.register'), new_account_registration_path %>
+    <% end %>
+  </div>
+<% end %>

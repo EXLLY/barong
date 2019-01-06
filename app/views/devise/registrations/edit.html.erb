@@ -34,7 +34,7 @@
                     <%= f.label :password_confirmation, (t 'password.confirm_new_password') %>
                     <%= f.password_field :password_confirmation, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.placeholder_confirm_new_password') %>
                 </div>
-                <% if @otp_enabled %>
+                <% if current_account.otp_enabled %>
                 <div class="form-group">
                   <%= label_tag :otp, (t 'password.google_code') %>
                   <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>

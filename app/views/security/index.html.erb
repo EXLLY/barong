@@ -19,12 +19,20 @@
                     <strong><%= (t 'password.password') %></strong>
                   </div>
                 </a>
-                <a href="<%=security_path %>" class="profile-security-google">
+                <% if current_account.otp_enabled %>
+                  <a href="<%= security_preUnbind_path %>" class="profile-security-google">
+                    <div>
+                      <strong><%= (t 'profiles.Google_2_Step') %></strong>
+                    </div>
+                  </a>
+                <%else %>
+                <a href="<%= security_path %>" class="profile-security-google">
                   <div>
                     <strong><%= (t 'profiles.Google_2_Step') %></strong>
                     <span class="disable"><%= (t 'profiles.settings_incomplete') %></span>
                   </div>
                 </a>
+                <%end %>
               </div>
             </div>
           </div>
