@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'health/alive', to: 'health#alive'
   get 'health/ready', to: 'health#ready'
 
+  get 'profiles/review', to: 'profiles#review'
+
   resources :phones,    only: %i[new create]
   resources :profiles,  only: %i[new create index show]
   resources :documents, only: %i[new create]

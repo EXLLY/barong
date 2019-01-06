@@ -1,0 +1,7 @@
+<div class="profile-sidebar">
+  <div class="sidebar-list">
+    <%=link_to (t 'profiles.overview'), index_path%>
+    <%=link_to (t 'profiles.security'), security_index_path %>
+    <%=link_to (t 'profiles.kyc'), profiles_path(@profile), class:"current"  %>
+  </div>
+</div>

@@ -172,7 +172,9 @@ en:
     doc_number: ID/Passport number
     number: AB123456
     doc_upload: Document upload
-    contact_us: Please contact us at contact@galleon.exchange. Our customer service will help you with the KYC verification.
+    contact_email: contact@galleon.exchange
+    contact_us_before: Please contact us at 
+    contact_us_after: . Our customer service will help you with the KYC verification.
     safety: To ensure security of your account.Galleon strongly suggest that DO NOT uninstall Google Authenticator or unbind Google 2-step verification,
     otherwise: otherwise your account and assets might be at risk of been hacked.
     unbind_g: Unbind Google 2-step verification
