@@ -1,0 +1,34 @@
+
+<% content_for :guide do %>
+  <div class="mask-fixed">
+    <div class="mask-content">
+      <div class="register-container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= (t 'registration.email_activation') %></h3>
+          </div>
+          <div class="panel-body">
+            <div class="email-activation">
+              <p><%= (t 'registration.send_to') %><br>
+                <%=@email %><br>
+                <%= (t 'registration.if_you') %><br>
+                <%= (t 'registration.receive') %><br>
+                <%= (t 'registration.receive') %><br>
+                <%= (t 'registration.resend') %><br>
+              </p>
+              <%= form_for('accounts', url: account_confirmation_path, html: { method: :post }) do |f| %>
+                <%#= devise_error_messages! %>
+                <%= f.hidden_field :email, value: @email%>
+
+                <div class="mt-4">
+                  <%= f.submit (t 'registration.resend_an_email'), class: 'btn btn-primary btn-block' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

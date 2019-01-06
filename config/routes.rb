@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   mount ManagementAPI::V1::Base, at: '/management_api'
 
   devise_for :accounts, controllers: { sessions: :sessions,
-                                       confirmations: :confirmations }
+                                       confirmations: :confirmations,
+                                       registrations: :registrations,
+                                       passwords: :passwords}
   devise_scope :account do
     match 'accounts/sign_in/confirm', to: 'sessions#confirm', via: %i[get post]
   end
@@ -21,6 +23,9 @@ Rails.application.routes.draw do
   get  'security/preUnbind',  to: 'security#preUnbind'
   get  'security/unbind',    to: 'security#unbind'
   post 'security/unbindConfirm',    to: 'security#unbindConfirm'
+
+  get  'notice/registNotice', to: 'notice#registNotice'
+  get  'accounts/resetNotice', to: 'notice#resetNotice'
 
   get 'gee_test_register',    to: 'geetest#register'
 

@@ -20,7 +20,7 @@
                 <span class="warning"><%= (t 'profiles.unverified') %></span>
               </div>
               <div class="col-md-9">
-                <ul class="verifi-step step2">
+                <ul class="verifi-step <%if current_account.otp_enabled%><%if current_account.level == 3%>step4<%else %>step3<%end %><%else%>step2<%end %>">
                   <li><span><%= (t 'profiles.email_verification') %></span><i></i></li>
                   <li><span><%= (t 'profiles.google_2_step') %></span><i></i></li>
                   <li><span><%= (t 'profiles.kyc') %></span><i></i></li>

@@ -100,11 +100,19 @@ en:
     register: Register
     forgot: Forgot password?
     not_signed_in: You are not signed in.
+    go_code: Google 2-Step verification code
   registration:
     confirm_password:  Confirm password
     password_confirmation: Password confirmation
     agree: I have read and agree to the
     terms: Terms of Use
+    email_activation: EMAIL ACTIVATION
+    sent_to: An activation email has been sent to
+    if_you: If you are using Gmail of it is taking a long time to
+    receive: receive the email, please check your Spam or Trash
+    folders: folders. If you still didn't receive the email, click the
+    resend: Resend an email link.
+    resend_an_email: RESEND AN EMAIL
   password:
     find_password: FIND PASSWORD
     submit: SUBMIT
@@ -117,6 +125,8 @@ en:
     enter_old_password: Enter old password
     enter_new_password: Enter new password
     google_code: Google 2-Step verification code
+    reset_pwd: RESET YOUR PASSWORD
+    sent_to: An email for reseting your password has been sent to
   profiles:
     overview: Overview
     security: Security
