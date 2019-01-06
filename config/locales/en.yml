@@ -90,8 +90,8 @@ en:
     deposit: Deposit
     withdraw: Withdraw
   session:
-    secure_url: Please confirm the URL https://galleon.com
-    secure_lock: Secure | https://www.galleon.com
+    secure_url: Please confirm the URL https://galleon.exchange
+    secure_lock: Secure | https://www.galleon.exchange
     email: Email
     password: Password
     email_placeholder: Please input the email
@@ -129,10 +129,10 @@ en:
     disable: Disable
     unbind: Unbind
     enable: Enable
-    withdrawal_limit: 24h Withdrawal Limit
+    withdrawal_limit: 24h Withdraw Limit
     increase_limit: Increase Limit
     completed: Completed
-    complete_kyc: Complete the KYC information
+    complete_kyc: Sumbit your KYC information
     Google_2_Step: Google 2-Step
     settings_incomplete: Settings Incomplete
     install: Install Google Authenticator
@@ -149,18 +149,12 @@ en:
     2_step_secret_key: 2-step secret key
     enable_google_authentication: Enable Google Authentication
     google_authentication_code: Google Authentication Code
-    please_save: Please save this Key on paper. this Key
-    waillallow: willallow you to recover your Google
-    in_case: Authentication in case of phone loss.
-    resetting: Resetting your Google Authentication
-    requires: requires customer support and
-    takes: takes at least 7 days to process.
+    please_save: Please save this Key on paper. 
+      this Key will allow you to recover your Google Authentication in case of phone loss. 
+    reset_2fa: Resetting your Google Authentication requires customer support and takes at least 7 days to process.
     please_input: Please input the 6 digtal code
     submit: SUBMIT
-    after_enable: After enable, Login / Trading
-    withdrawals: Withdrawals need to be
-    google_step: Google-step verification to
-    ensure: ensure account security
+    after_enable: After enable Google 2-step authentication, you will need to finish 2-Step authentication everytime when you login,trade and withdraw to ensure account security
     profile: Profile
     first_name: First name
     last_name: Last name
@@ -173,12 +167,12 @@ en:
     individual_account: Individual Account
     insitutional_account: Insitutional Account
     doc_type: Document type
-    doc_expiry: Document expiry
+    doc_expiry: Document expiry date
     expiry_date: Expiry date
-    doc_number: Document number
+    doc_number: ID/Passport number
     number: AB123456
     doc_upload: Document upload
-    contact_us: Please contact us on xxxx@xxx.com, we will have customer support to help you with the KYC verification.
-    safety: For your account safety, please do not uninstall Google Authenticator or unbind Google 2-FA,
-    otherwise: otherwise your account and assets could at risk of been hacked.
+    contact_us: Please contact us at contact@galleon.exchange. Our customer service will help you with the KYC verification.
+    safety: To ensure security of your account.Galleon strongly suggest that DO NOT uninstall Google Authenticator or unbind Google 2-step verification,
+    otherwise: otherwise your account and assets might be at risk of been hacked.
     unbind_g: Unbind Google 2-step verification
