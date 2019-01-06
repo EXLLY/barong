@@ -30,13 +30,13 @@
                 <span class="step">2</span>
                 <img alt="QR Code" class="qrcode" src="data:image/png;base64,<%= @otp.data[:barcode] %>" />
                 <p><%= (t 'profiles.scan') %></p>
-                <a class="secret-link" href="#"><%= @otp_secret %></a>
+                <span class="secret-code"><%= @otp_secret %></span>
               </div>
               <div class="col-md-3">
                 <h5><%= (t 'profiles.back_up') %></h5>
                 <span class="step">3</span>
                 <p>Be sure to back up your<br><%= (t 'profiles.2_step_secret_key') %></p>
-                <a class="secret-link" href="#"><%= @otp_secret %></a>
+                <span class="secret-code"><%= @otp_secret %></span>
                 <p><small><%= (t 'profiles.please_save') %><br><%= (t 'profiles.waillallow') %><br><%= (t 'profiles.in_case') %></small></p>
                 <p><small><%= (t 'profiles.resetting') %><br><%= (t 'profiles.requires') %><br><%= (t 'profiles.takes') %></small></p>
               </div>
