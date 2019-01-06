@@ -12,7 +12,8 @@
               </div>
               <div class="profile-kyc-form">
                 <div class="profile-kyc-form-wrap">
-                  <%= render 'form', profile: @profile %>
+                  <p>Your profiles have been received, and are currently being reviewed.</p>
+                  <p><small>If you experience an unexpected interruption when uploading information during your application process, please <%= link_to ('try again'), new_profile_path %>.</small></p>
                 </div>
               </div>
             </div>

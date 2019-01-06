@@ -1,4 +1,7 @@
-html, body{height:100%;color:#6f6f69;}
+html, body{
+  height:100%;
+  color:#6f6f69;
+}
 a{color:#2e96f0;}
 .flex-box{
   width: 100%;
@@ -145,6 +148,7 @@ footer .support-24{
 }
 footer a.sns-twitter,
 footer a.sns-facebook,
+footer a.sns-telegram,
 footer a.sns-weixin,
 footer a.sns-qq,
 footer a.sns-weibo{
@@ -159,11 +163,24 @@ footer a.sns-weibo{
   background-position: 50% 50%;
   background-size:auto 70%;
 }
-footer a.sns-twitter{background-image: url(asset_path('home/sns_twitter.png'));}
-footer a.sns-facebook{background-image: url(asset_path('home/sns_facebook.png'));}
-footer a.sns-weixin{background-image: url(asset_path('home/sns_weixin.png'));}
-footer a.sns-qq{background-image: url(asset_path('home/sns_qq.png'));}
-footer a.sns-weibo{background-image: url(asset_path('home/sns_weibo.png'));}
+footer a.sns-twitter{
+  background-image: url(asset_path('home/sns_twitter.png'));
+}
+footer a.sns-facebook{
+  background-image: url(asset_path('home/sns_facebook.png'));
+}
+footer a.sns-telegram{
+  background-image: url(asset_path('home/sns_telegram.png'));
+}
+footer a.sns-weixin{
+  background-image: url(asset_path('home/sns_weixin.png'));
+}
+footer a.sns-qq{
+  background-image: url(asset_path('home/sns_qq.png'));
+}
+footer a.sns-weibo{
+  background-image: url(asset_path('home/sns_weibo.png'));
+}
 .mask-fixed{
   position:fixed;
   z-index:998;
@@ -180,7 +197,9 @@ footer a.sns-weibo{background-image: url(asset_path('home/sns_weibo.png'));}
   display:table-cell;
   vertical-align: middle;
 }
-.mask-fixed .panel.panel-default{border-width:0;}
+.mask-fixed .panel.panel-default{
+  border-width:0;
+}
 .mask-fixed .panel-heading{
   background-color:#2e96f0;
   border-color:#2e96f0;
@@ -220,10 +239,18 @@ footer a.sns-weibo{background-image: url(asset_path('home/sns_weibo.png'));}
   background-position: 0 50%;
   background-size:auto 70%;
 }
-.profile header a.menu-orders{background-image: url(asset_path('menu/orders.png'));}
-.profile header a.menu-funds{background-image: url(asset_path('menu/funds.png'));}
-.profile header a.menu-account{background-image: url(asset_path('menu/account.png'));}
-.profile header a.menu-logout{background-image: url(asset_path('menu/logout.png'));}
+.profile header a.menu-orders{
+  background-image: url(asset_path('menu/orders.png'));
+}
+.profile header a.menu-funds{
+  background-image: url(asset_path('menu/funds.png'));
+}
+.profile header a.menu-account{
+  background-image: url(asset_path('menu/account.png'));
+}
+.profile header a.menu-logout{
+  background-image: url(asset_path('menu/logout.png'));
+}
 .profile header a.menu-language{
   position:relative;
 }
@@ -267,7 +294,9 @@ footer a.sns-weibo{background-image: url(asset_path('home/sns_weibo.png'));}
   left:0;
   border-left:solid 1px #dbdbdb;
 }
-.profile-head > :first-child .profile-head-item:before{display:none;}
+.profile-head > :first-child .profile-head-item:before{
+  display:none;
+}
 .profile-head-item > div {
   margin-top:8px;
   margin-bottom:8px;
@@ -280,8 +309,12 @@ footer a.sns-weibo{background-image: url(asset_path('home/sns_weibo.png'));}
   padding-left:8px;
 }
 .profile-head-item.estimated{}
-.profile-head-item.available strong{color:#4ac26e;}
-.profile-head-item.inorders strong{color:#ef6351;}
+.profile-head-item.available strong{
+  color:#4ac26e;
+}
+.profile-head-item.inorders strong{
+  color:#ef6351;
+}
 .profile-body{
   padding-bottom:16px;
 }

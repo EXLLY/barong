@@ -2,7 +2,6 @@
 
 class ProfilesController < ApplicationController
   before_action :authenticate_account!
-  before_action :redirect_if_profile_created
   before_action :check_account_level
 
   def new
@@ -28,11 +27,11 @@ class ProfilesController < ApplicationController
 
   end
 
-private
-
-  def redirect_if_profile_created
-    redirect_to new_document_path if current_account.profile
+  def review
+    redirect_to new_profile_path unless current_account.profile
   end
+
+private
 
   def check_account_level
     redirect_to security_path if current_account.level < 2
