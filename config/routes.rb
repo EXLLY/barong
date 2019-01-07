@@ -11,20 +11,21 @@ Rails.application.routes.draw do
                                        passwords: :passwords}
   devise_scope :account do
     match 'accounts/sign_in/confirm', to: 'sessions#confirm', via: %i[get post]
+    match 'accounts/exit_peatio', to: 'sessions#exit_peatio', via: %i[get post]
   end
 
   root to: 'index#index', as: :index
 
-  post 'phones/verification', to: 'phones#verify'
+  post 'phones/verification',    to: 'phones#verify'
 
-  get  'security',            to: 'security#enable'
-  post 'security/confirm',    to: 'security#confirm'
-  get 'security/index',       to: 'security#index'
-  get  'security/preUnbind',  to: 'security#preUnbind'
-  get  'security/unbind',    to: 'security#unbind'
-  post 'security/unbindConfirm',    to: 'security#unbindConfirm'
+  get  'security',               to: 'security#enable'
+  post 'security/confirm',       to: 'security#confirm'
+  get  'security/index',         to: 'security#index'
+  get  'security/preUnbind',     to: 'security#preUnbind'
+  get  'security/unbind',        to: 'security#unbind'
+  post 'security/unbindConfirm', to: 'security#unbindConfirm'
 
-  get  'notice/registNotice', to: 'notice#registNotice'
+  get  'notice/registNotice',  to: 'notice#registNotice'
   get  'accounts/resetNotice', to: 'notice#resetNotice'
 
   get 'gee_test_register',    to: 'geetest#register'
