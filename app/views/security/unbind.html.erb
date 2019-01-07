@@ -7,7 +7,7 @@
           <div class="profile-sidebar">
             <div class="sidebar-list">
               <%=link_to (t 'profiles.overview'), index_path%>
-              <%=link_to (t 'profiles.security'), '' ,class:"current" %>
+              <%=link_to (t 'profiles.security'), security_index_path ,class:"current" %>
               <%=link_to (t 'profiles.kyc'), profiles_path(@profile) %>
             </div>
           </div>
@@ -21,11 +21,16 @@
                   <%= form_tag(security_unbindConfirm_path) do  %>
                     <div class="form-group">
                       <%= label_tag :password, (t 'password.password')  %>
-                      <%= password_field_tag :password,'', autocomplete: 'off', class: 'form-control', placeholder: ""  %>
+                      <%= password_field_tag :password,'', autocomplete: 'off', class: 'form-control'  %>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group has-error has-feedback">
                       <%= label_tag :otp, (t 'password.google_code') %>
                       <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
+                      <span class="help-block">
+                        <%- flash.each do |name, msg| -%>
+                          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                        <%- end -%>
+                      </span>
                     </div>
                     <div class="form-group">
                       <%= submit_tag (t 'profiles.submit'), class: 'btn btn-primary btn-block', data: { confirm: 'Do you agree? If you lost your device you will need to verify your access' } %>

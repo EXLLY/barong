@@ -39,4 +39,8 @@ private
       I18n.locale = locale if locale.present? && I18n.available_locales.include?(locale.to_sym)
     end
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+    ENV['API_CORS_ORIGINS']
+  end
 end

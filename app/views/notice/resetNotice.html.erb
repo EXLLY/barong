@@ -1,0 +1,20 @@
+
+<% content_for :guide do %>
+  <div class="mask-fixed">
+    <div class="mask-content">
+      <div class="register-container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= (t 'password.reset_pwd') %></h3>
+          </div>
+          <div class="panel-body">
+            <div class="email-activation">
+              <p><%= (t 'password.sent_to') %><br><%=@email.gsub(/.{0,2}@.{0,2}/,'**@***') %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

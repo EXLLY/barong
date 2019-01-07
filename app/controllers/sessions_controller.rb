@@ -30,6 +30,10 @@ class SessionsController < Devise::SessionsController
     self.resource = resource_class.new({"email"=>session[:email], "password"=>session[:pwd]})
   end
 
+  def exit_peatio
+    redirect_to ENV['API_CORS_ORIGINS'] + "/signout"
+  end
+  
 private
 
   def otp_enabled?

@@ -18,7 +18,7 @@
       </div>
       <div class="form-group">
         <%= form.label :doc_expire, (t 'profiles.doc_expire') %>
-        <%= form.text_field :doc_expire, id: :document_doc_expire, class: 'form-control', 'data-date-format': 'yyyy-mm-dd', 'data-date-start-date': '+1d', placeholder: (t 'profiles.expiry_date')%>
+        <%= form.text_field :doc_expire, id: :document_doc_expire, class: 'datepicker-toggle form-control', 'data-date-format': 'yyyy-mm-dd', 'data-date-start-date': '+1d', placeholder: (t 'profiles.expiry_date')%>
       </div>
       <div class="form-group">
         <%= form.label :doc_number, (t 'profiles.doc_number') %>
@@ -27,8 +27,8 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label>Document upload</label>
-        <%= form.file_field :upload, id: :document_upload, class: 'file-upload-drag', 'data-allowed-file-extensions': 'png jpg jpeg pdf', 'data-max-file-size': '10M', 'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
+        <label><%=(t 'profiles.document_upload') %></label>
+        <%= form.file_field :upload, id: :document_upload, class: 'dropify file-upload-drag ', 'data-allowed-file-extensions': 'png jpg jpeg pdf', 'data-max-file-size': '10M', 'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
         </br>
       </div>
     </div>

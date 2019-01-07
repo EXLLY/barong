@@ -2,14 +2,13 @@
 <div class="mask-fixed">
   <div class="mask-content">
     <div class="login-container">
-      <div class="panel panel-default">
+      <div class="panel panel-default  has-error has-feedback">
         <div class="panel-body">
           <div class="secure-url">
             <p> <%= (t 'session.secure_url') %></p>
             <span class="secure-lock"><%= (t 'session.secure_lock') %></span>
           </div>
           <%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
-            <%= devise_error_messages! %>
             <input type="hidden" id="geetest_challenge" name="geetest_challenge" value="" />
             <input type="hidden" id="geetest_validate" name="geetest_validate" value="" />
             <input type="hidden" id="geetest_seccode" name="geetest_seccode" value="" />
@@ -25,6 +24,11 @@
                                     class: 'form-control',
                                     placeholder: (t 'session.password_placeholder') %>
             </div>
+            <span class="help-block">
+              <%- flash.each do |name, msg| -%>
+               <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+            </span>
             <div class="form-group login-button">
               <button type="button" class="btn btn-primary btn-block" id="log-in"><%= (t 'session.login') %></button>
               <div class="row">

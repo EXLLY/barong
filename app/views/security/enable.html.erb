@@ -30,29 +30,31 @@
                 <span class="step">2</span>
                 <img alt="QR Code" class="qrcode" src="data:image/png;base64,<%= @otp.data[:barcode] %>" />
                 <p><%= (t 'profiles.scan') %></p>
-                <a class="secret-link" href="#"><%= @otp_secret %></a>
+                <span class="secret-code"><%= @otp_secret %></span>
               </div>
               <div class="col-md-3">
                 <h5><%= (t 'profiles.back_up') %></h5>
                 <span class="step">3</span>
                 <p>Be sure to back up your<br><%= (t 'profiles.2_step_secret_key') %></p>
-                <a class="secret-link" href="#"><%= @otp_secret %></a>
-                <p><small><%= (t 'profiles.please_save') %><br><%= (t 'profiles.waillallow') %><br><%= (t 'profiles.in_case') %></small></p>
-                <p><small><%= (t 'profiles.resetting') %><br><%= (t 'profiles.requires') %><br><%= (t 'profiles.takes') %></small></p>
+                <span class="secret-code"><%= @otp_secret %></span>
+                <p><small><%= (t 'profiles.please_save') %></small></p>
+                <p><small><%= (t 'profiles.reset_2fa') %></small></p>
               </div>
               <div class="col-md-3">
                 <h5><%= (t 'profiles.enable_google_authentication') %></h5>
                 <span class="step">4</span>
                 <p><%= (t 'profiles.google_authentication_code') %>:</p>
                   <%= form_tag(security_confirm_path) do  %>
-                    <div class="form-group">
-                      <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
-                    </div>
-                    <div class="form-group">
-                      <%= submit_tag (t 'profiles.submit'), class: 'btn btn-primary btn-block', data: { confirm: 'Do you agree? If you lost your device you will need to verify your access' } %>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
+                      </div>
+                      <div class="form-group">
+                        <%= submit_tag (t 'profiles.submit'), class: 'btn btn-primary btn-block', data: { confirm: 'Do you agree? If you lost your device you will need to verify your access' } %>
+                      </div>
                     </div>
                   <% end %>
-                <p><%= (t 'profiles.after_enable') %><br><%= (t 'profiles.withdrawals') %><br><%= (t 'profiles.google_step') %><br><%= (t 'profiles.ensure') %></p>
+                <p><small><%= (t 'profiles.after_enable') %></small></p>
               </div>
             </div>
           </div>

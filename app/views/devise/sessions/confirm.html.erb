@@ -1,23 +1,29 @@
 
 
 <% content_for :guide do %>
+<div class="profile-security-google-unbind">
   <div class="dialog-google-2fa" id="pup-google-2fa">
     <div class="dialog-cell">
       <div class="dialog-content">
         <div class="dialog-head">
-          <%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
+          <span><%= (t 'session.go_code') %></span>
+        </div>
+        <div class="dialog-body">
+           <%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
+            <%= devise_error_messages! %>
             <%= f.hidden_field :email %>
             <%= f.hidden_field :password %>
             <div class="form-group">
               <%= label_tag :otp, '6-digit Google Authenticator code' %>
-              <%= text_field_tag :otp, '', autocomplete: 'off', class: 'px-1 form-control form-control-lg underlined', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
+              <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
             </div>
-            <div class="btn btn-primary btn-block">
-                <%= f.submit 'Submit', class: 'btn btn-success' %>
+            <div class="form-group google-unbind-btn">
+                <%= f.submit 'Submit', class: 'btn btn-primary btn-block' %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 <% end %>
