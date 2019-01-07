@@ -14,22 +14,22 @@
           <div class="flex-content">
             <div class="profile-content">
               <div class="profile-security">
-                <a href="<%=edit_account_registration_path%>" class="profile-security-password">
+                <a href="<%=edit_account_registration_path%>" class="profile-security-password selected">
                   <div>
                     <strong><%= (t 'password.password') %></strong>
                   </div>
                 </a>
                 <% if current_account.otp_enabled %>
-                  <a href="<%= security_preUnbind_path %>" class="profile-security-google">
+                  <a href="<%= security_preUnbind_path %>" class="profile-security-password selected">
                     <div>
                       <strong><%= (t 'profiles.Google_2_Step') %></strong>
                     </div>
                   </a>
                 <%else %>
-                <a href="<%= security_path %>" class="profile-security-google">
+                <a href="<%= security_path %>" class="profile-security-google selected">
                   <div>
                     <strong><%= (t 'profiles.Google_2_Step') %></strong>
-                    <span class="disable"><%= (t 'profiles.settings_incomplete') %></span>
+                    <span class="disabled"><%= (t 'profiles.settings_incomplete') %></span>
                   </div>
                 </a>
                 <%end %>

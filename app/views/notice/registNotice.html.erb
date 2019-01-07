@@ -8,22 +8,25 @@
             <h3 class="panel-title"><%= (t 'registration.email_activation') %></h3>
           </div>
           <div class="panel-body">
-            <div class="email-activation">
-              <p><%= (t 'registration.send_to') %><br>
-                <%=@email %><br>
+            <div class="email-activation has-error has-feedback">
+              <p><%= (t 'registration.sent_to') %><br>
+                <%=@email.gsub(/.{0,3}@.{0,3}/,'***@***') %><br>
                 <%= (t 'registration.if_you') %><br>
                 <%= (t 'registration.receive') %><br>
-                <%= (t 'registration.receive') %><br>
+                <%= (t 'registration.folders') %><br>
                 <%= (t 'registration.resend') %><br>
               </p>
-              <%= form_for('accounts', url: account_confirmation_path, html: { method: :post }) do |f| %>
-                <%#= devise_error_messages! %>
+              <%= form_for('account', url: account_confirmation_path, html: { method: :post }) do |f| %>
                 <%= f.hidden_field :email, value: @email%>
-
                 <div class="mt-4">
                   <%= f.submit (t 'registration.resend_an_email'), class: 'btn btn-primary btn-block' %>
                 </div>
               <% end %>
+              <span class="help-block">
+                <%- flash.each do |name, msg| -%>
+                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                <%- end -%>
+              </span>
             </div>
           </div>
         </div>

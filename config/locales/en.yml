@@ -132,11 +132,12 @@ en:
     security: Security
     kyc: KYC Verification
     unverified: Unverified
+    verified: Verified
     email_verification: Email Verification
     google_2_step: google 2-step
     2_step: 2-Step
     google_authenticator: Google Authenticator
-    disable: Disable
+    disable: Disabled
     unbind: Unbind
     enable: Enable
     withdrawal_limit: 24h Withdraw Limit
@@ -188,3 +189,6 @@ en:
     safety: To ensure security of your account.Galleon strongly suggest that DO NOT uninstall Google Authenticator or unbind Google 2-step verification,
     otherwise: otherwise your account and assets might be at risk of been hacked.
     unbind_g: Unbind Google 2-step verification
+    prohibited: prohibited this profile from being saved
+    document_upload: Document upload
+    reviewed: Your document is being reviewed

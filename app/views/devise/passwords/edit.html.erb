@@ -9,7 +9,6 @@
         <div class="panel-body">
           <div class="reset-password">
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-              <%= devise_error_messages! %>
               <%= f.hidden_field :reset_password_token %>
               <div class="form-group">
                 <%= f.label :password, (t 'password.new_password'), for: 'inputEmail' %><br />
@@ -18,9 +17,12 @@
                 <% end %>
                 <%= f.password_field :password, autofocus: true, id: 'inputEmail', autocomplete: 'off', class: 'form-control', placeholder:(t 'password.placeholder_new_password')   %>
               </div>
-              <div class="form-group">
+              <div class="form-group has-error has-feedback">
                 <%= f.label :password_confirmation, (t 'password.confirm_new_password'), for: 'inputEmail1'%><br />
                 <%= f.password_field :password_confirmation, id: 'inputEmail1', autocomplete: 'off', class: 'form-control', placeholder: (t 'password.placeholder_confirm_new_password')  %>
+                <% if devise_error_messages! %>
+                  <span class="help-block"><%= devise_error_messages!%></span>
+                <% end %>
               </div>
               <div class="form-group mask-form-button">
                 <%= f.submit 'SUBMIT', class: 'btn btn-primary btn-block' %>

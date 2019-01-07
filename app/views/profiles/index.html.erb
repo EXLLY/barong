@@ -15,12 +15,25 @@
               </div>
               <div class="profile-kyc-tabContent">
                 <div class="profile-kyc-link">
-                  <a href="<%= profiles_review_path%>" class="profile-kyc-link-pro">
+                  <a href="<%= profiles_review_path%>" class=" <% if current_account.profile %>profile-kyc-link-pro selected<%else %>profile-kyc-link-doc selected<%end %> ">
                     <div><strong><%= (t 'profiles.profile') %></strong></div>
                   </a>
-                  <a href="<%= new_document_path %>" class="profile-kyc-link-doc">
+                  <% if current_account.documents.count==0 %>
+                    <a href="<%= new_document_path %>" class="profile-kyc-link-doc selected">
+                      <div><strong><%= (t 'profiles.document') %></strong></div>
+                    </a>
+                  <%end %>
+                  <% if current_account.documents.count>0 && current_account.labels.third.value == 'pending'%>
+                  <a href="<%= new_document_path %>" class="profile-kyc-link-doc selected">
                     <div><strong><%= (t 'profiles.document') %></strong></div>
                   </a>
+                  <p><%= (t 'profiles.reviewed') %></p>
+                  <%end %>
+                  <% if current_account.documents.count>0 && current_account.labels.third.value == 'verified'%>
+                    <a href="<%= new_document_path %>" class="profile-kyc-link-pro selected">
+                      <div><strong><%= (t 'profiles.document') %></strong></div>
+                    </a>
+                  <%end %>
                 </div>
               </div>
             </div>

@@ -16,8 +16,12 @@
           <div class="overview-index">
             <div class="row">
               <div class="col-md-3 text-center">
-                <h3> <%= current_account.email %></h3>
-                <span class="warning"><%= (t 'profiles.unverified') %></span>
+                <h3> <%= current_account.email.gsub(/.{0,3}@.{0,3}/,'***@***') %></h3>
+                <%if current_account.level == 3%>
+                  <span class="warning"><%= (t 'profiles.verified') %></span>
+                <%else %>
+                  <span class="warning"><%= (t 'profiles.unverified') %></span>
+                <%end %>
               </div>
               <div class="col-md-9">
                 <ul class="verifi-step <%if current_account.otp_enabled%><%if current_account.level == 3%>step4<%else %>step3<%end %><%else%>step2<%end %>">
