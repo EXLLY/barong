@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <a href="#"><%= image_tag "logo.png" %></a>
+        <a href="<%= ENV['API_CORS_ORIGINS']%>"><%= image_tag "logo.png" %></a>
       </div>
       <div class="col-md-8 text-right">
         <%= render partial: 'layouts/shared/header_profile_setting' if current_account %>
@@ -14,7 +14,7 @@
             <%= t('header.signup') %>
           </a>
         <%end %>
-        <%= render partial: 'layouts/shared/header_lang_sel' %>
+        <%#= render partial: 'layouts/shared/header_lang_sel' %>
       </div>
     </div>
   </div>
