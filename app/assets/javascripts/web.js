@@ -76,3 +76,11 @@ window.onload = function () {
         }
     });
 };
+
+function isaccepted(){
+    if(document.getElementById("check_id").checked==true){
+        document.getElementById("submit").disabled = false;
+    }else{
+        document.getElementById("submit").disabled = true;
+    }
+}

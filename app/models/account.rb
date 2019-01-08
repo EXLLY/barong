@@ -112,7 +112,7 @@ private
 end
 
 # == Schema Information
-# Schema version: 20180907133821
+# Schema version: 20190108090124
 #
 # Table name: accounts
 #
@@ -142,6 +142,7 @@ end
 #  discarded_at           :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  subscribed             :boolean          default(FALSE)
 #
 # Indexes
 #

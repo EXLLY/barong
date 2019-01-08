@@ -22,7 +22,7 @@
                 <%= f.label :password, for: 'inputPassword1'  %>
                 <%= f.password_field :password, id: 'inputPassword1', autofocus: true, autocomplete: 'off',
                                     class: 'form-control',
-                                    placeholder: (t 'session.password_placeholder') %>
+                                    placeholder: (t 'session.password_placeholder'), required: true %>
             </div>
             <span class="help-block">
               <%- flash.each do |name, msg| -%>

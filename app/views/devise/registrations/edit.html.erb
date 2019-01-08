@@ -24,15 +24,15 @@
                   <%= devise_error_messages! %>
                   <div class="form-group">
                       <%= f.label :current_password, (t 'password.old_password') %>
-                      <%= f.password_field :current_password, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.enter_old_password') %>
+                      <%= f.password_field :current_password, autocomplete: 'off',  class: "form-control", required: true, placeholder: (t 'password.enter_old_password') %>
                   </div>
                   <div class="form-group">
                       <%= f.label :password, (t 'password.new_password') %>
-                      <%= f.password_field :password, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.enter_new_password') %>
+                      <%= f.password_field :password, autocomplete: 'off',  class: "form-control", required: true, placeholder: (t 'password.enter_new_password') %>
                   </div>
                   <div class="form-group">
                       <%= f.label :password_confirmation, (t 'password.confirm_new_password') %>
-                      <%= f.password_field :password_confirmation, autocomplete: 'off',  class: "form-control", placeholder: (t 'password.placeholder_confirm_new_password') %>
+                      <%= f.password_field :password_confirmation, autocomplete: 'off',  class: "form-control", required: true, placeholder: (t 'password.placeholder_confirm_new_password') %>
                   </div>
                   <% if current_account.otp_enabled %>
                     <div class="form-group">
