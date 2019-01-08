@@ -6,7 +6,22 @@
 //= require dropify/src/js/dropify
 //= require gt
 
+window.dataLayer = window.dataLayer || [];
+function gtag(){
+  dataLayer.push(arguments)
+}
+function loadGtag(){
+  var script = document.createElement('script');
+  script.src = '//www.googletagmanager.com/gtag/js?id=UA-131801655-1';
+  script.onload = function(){
+    gtag('js', new Date());
+    gtag('config', 'UA-131801655-1')
+  };
+  document.body.appendChild(script);
+}
+
 window.onload = function () {
+  loadGtag();
   $('.datepicker-toggle').datepicker();
 
   $('#send-code-btn').on('click', function () {
