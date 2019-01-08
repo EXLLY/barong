@@ -22,11 +22,6 @@
                   <%= f.submit (t 'registration.resend_an_email'), class: 'btn btn-primary btn-block' %>
                 </div>
               <% end %>
-              <span class="help-block">
-                <%- flash.each do |name, msg| -%>
-                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                <%- end -%>
-              </span>
             </div>
           </div>
         </div>

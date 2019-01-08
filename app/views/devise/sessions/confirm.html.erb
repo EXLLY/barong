@@ -17,6 +17,11 @@
               <%= label_tag :otp, '6-digit Google Authenticator code' %>
               <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
             </div>
+            <span class="help-block">
+              <%- flash.each do |name, msg| -%>
+               <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+            </span>
             <div class="form-group google-unbind-btn">
                 <%= f.submit 'Submit', class: 'btn btn-primary btn-block' %>
             </div>

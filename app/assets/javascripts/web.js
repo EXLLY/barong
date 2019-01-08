@@ -54,6 +54,7 @@ window.onload = function () {
           message:  '<div class="dropify-message"> <p>{{ default }}</p> </div>',
       }
   });
+/*
     var handler1 = function (captchaObj) {
         captchaObj.onReady(function () {
             $("#wait").hide();
@@ -89,7 +90,7 @@ window.onload = function () {
                 // more configuration ：http://www.geetest.com/install/sections/idx-client-sdk.html#config
             }, handler1);
         }
-    });
+    });*/
 };
 
 function isaccepted(){

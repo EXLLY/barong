@@ -1,19 +1,9 @@
 # frozen_string_literal: true
 class SessionsController < Devise::SessionsController
   prepend_before_action :otp_verify, if: :otp_enabled?, only: :create
+  prepend_before_action :captcha_verify, if: :not_verified?, only: :create
 
   def create
-    if params[:geetest_challenge] != nil
-      # geetest start
-      sdk = Geetest.new(ENV['GEE_TEST_ID'], ENV['GEE_TEST_KEY'])
-      # Make judgments based on the three parameters that are automatically passed in when the form is submitted.
-      result = sdk.success_validate params[:geetest_challenge], params[:geetest_validate], params[:geetest_seccode]
-      # If the man-machine verification fails, jump back to the login page
-      unless result
-        return redirect_to(action: :new)
-      end
-      # geetest end
-    end
     return redirect_to(action: :new) if resource_params[:email].blank?
 
     self.resource = resource_class.new(sign_in_params)
@@ -30,11 +20,28 @@ class SessionsController < Devise::SessionsController
     self.resource = resource_class.new({"email"=>session[:email], "password"=>session[:pwd]})
   end
 
+  def check_captcha
+    unless captcha_verified?
+    end
+  end
+
   def exit_peatio
     redirect_to ENV['API_CORS_ORIGINS'] + "/signout"
   end
   
 private
+
+  def not_verified?
+    session[:captcha] != true;
+  end
+
+  def captcha_verify
+    if verify_recaptcha
+      session[:captcha] = true;
+    else
+      redirect_to(action: :new)
+    end
+  end
 
   def otp_enabled?
     account_by_email&.otp_enabled
