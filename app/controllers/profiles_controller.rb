@@ -34,6 +34,8 @@ class ProfilesController < ApplicationController
 private
 
   def check_account_level
+    logger.info("@@@@@@@@@@@@@@@@")
+    logger.info(current_account.to_json)
     redirect_to security_path if current_account.level < 2
   end
 

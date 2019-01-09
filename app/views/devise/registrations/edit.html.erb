@@ -36,7 +36,7 @@
                   <% if current_account.otp_enabled %>
                     <div class="form-group">
                       <%= label_tag :otp, (t 'password.google_code') %>
-                      <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
+                      <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
                     </div>
                   <% end %>
                   <% if devise_error_messages! %>
