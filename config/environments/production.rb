@@ -97,10 +97,15 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = {
-    host: ENV['URL_HOST'],
-    protocol: ENV['URL_SCHEME']
-  }
+  #temp way from development settings
+  options = { host: ENV.fetch('SMTP_URL_ADDRESS', 'localhost') }
+  options[:port] = 3000 if options[:host] == 'localhost'
+  config.action_mailer.default_url_options = options
+  #
+  #config.action_mailer.default_url_options = {
+  #  host: ENV['URL_HOST'],
+  #  protocol: ENV['URL_SCHEME']
+  #}
 
   config.action_mailer.smtp_settings = {
     address:              ENV['SMTP_ADDRESS'],

@@ -14,9 +14,9 @@ ARG RAILS_ENV=production
 # Users should override this variable by passing environment variable on container start.
 ENV RAILS_ENV=${RAILS_ENV} \
     APP_HOME=/home/app \
-    DEVISE_SECRET_KEY='changeme' \
-    SECRET_KEY_BASE='changeme' \
-    JWT_SHARED_SECRET_KEY='changeme'
+    DEVISE_SECRET_KEY='62363a59925a0331f946bf3271c6652384c8c211b05a82075e402cc2a514b62414df188585313ecd911b1f3cd0c9847fa2e1bf8ff0fb35a042d0d9c8a21988c9' \
+    SECRET_KEY_BASE='92e7de6877d36ea42ce364e1c2b93171c0d10869d31b998c0cbc61285784697c0077686203ff85f53496809975f4731fa4a6458ad39523f0be114a7812777a10' \
+    JWT_SHARED_SECRET_KEY='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1NDcwNDMwNjcsImV4cCI6MTU3ODU3OTA4NywiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJSb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.7XbsxD9sMygEwQHN5j8_x-Q45OPERXO74wiYzLDuiIY'
 
 RUN groupadd -r app --gid=1000 \
  && useradd -r -m -g app -d /home/app --uid=1000 app \
