@@ -15,7 +15,7 @@
             <%= f.hidden_field :password %>
             <div class="form-group">
               <%= label_tag :otp, '6-digit Google Authenticator code' %>
-              <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
+              <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
             </div>
             <span class="help-block">
               <%- flash.each do |name, msg| -%>
