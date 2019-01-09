@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
 
   before_action :set_language
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+
   def domain_asset(item)
     @website ||= Website.find_by_domain(request.domain)
     @website[item] unless @website.nil? || @website[item].nil?
@@ -20,6 +23,12 @@ class ApplicationController < ActionController::Base
 
   def doorkeeper_unauthorized_render_options(error: nil)
     { json: { error: 'Not authorized' } }
+  end
+
+  def configure_permitted_parameters
+    added_attrs = [:email, :password, :password_confirmation, :subscribed]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
 private

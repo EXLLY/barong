@@ -1,17 +1,14 @@
 <% content_for :guide do %>
-<div class="mask-fixed">
-  <div class="mask-content">
+<div class="block-table">
+  <div class="block-table-cell">
     <div class="login-container">
-      <div class="panel panel-default  has-error has-feedback">
+      <div class="panel panel-default">
         <div class="panel-body">
           <div class="secure-url">
             <p> <%= (t 'session.secure_url') %></p>
             <span class="secure-lock"><%= (t 'session.secure_lock') %></span>
           </div>
           <%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
-            <input type="hidden" id="geetest_challenge" name="geetest_challenge" value="" />
-            <input type="hidden" id="geetest_validate" name="geetest_validate" value="" />
-            <input type="hidden" id="geetest_seccode" name="geetest_seccode" value="" />
             <div class="form-group">
               <%= f.label :email, for: 'inputEmail1' %>
               <%= f.email_field :email,id: 'inputEmail1',  autofocus: true, autocomplete: 'email',
@@ -22,15 +19,19 @@
                 <%= f.label :password, for: 'inputPassword1'  %>
                 <%= f.password_field :password, id: 'inputPassword1', autofocus: true, autocomplete: 'off',
                                     class: 'form-control',
-                                    placeholder: (t 'session.password_placeholder') %>
+                                    placeholder: (t 'session.password_placeholder'), required: true %>
             </div>
-            <span class="help-block">
-              <%- flash.each do |name, msg| -%>
-               <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-              <%- end -%>
-            </span>
+            <div class="form-group has-error">
+              <span class="help-block">
+                <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                <%- end -%>
+              </span>
+            </div>
             <div class="form-group login-button">
-              <button type="button" class="btn btn-primary btn-block" id="log-in"><%= (t 'session.login') %></button>
+              <%= invisible_recaptcha_tags text: "login" ,class: "btn btn-primary btn-block" ,id:"ttlog-in"  %>
+            </div>
+            <div class="form-group">
               <div class="row">
                 <div class="col-md-6"><a href="<%= new_account_registration_path %>"><%= (t 'session.register') %></a></div>
                 <div class="col-md-6 text-right"><a href="<%= new_account_password_path %>"><%= (t 'session.forgot') %></a></div>

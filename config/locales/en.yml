@@ -104,8 +104,11 @@ en:
   registration:
     confirm_password:  Confirm password
     password_confirmation: Password confirmation
-    agree: I have read and agree to the
-    terms: Terms of Use
+    signUp: SIGN UP
+    agree: By clicking "SIGN UP" I agree to Galleon's
+    terms: Term of Service
+    and: and
+    privacy: Privacy Policy
     email_activation: EMAIL ACTIVATION
     sent_to: An activation email has been sent to
     if_you: If you are using Gmail of it is taking a long time to
@@ -113,6 +116,7 @@ en:
     folders: folders. If you still didn't receive the email, click the
     resend: Resend an email link.
     resend_an_email: RESEND AN EMAIL
+    want_receive: I want to receive updates and marketing communications from Galleon
   password:
     find_password: FIND PASSWORD
     submit: SUBMIT
@@ -192,3 +196,5 @@ en:
     prohibited: prohibited this profile from being saved
     document_upload: Document upload
     reviewed: Your document is being reviewed
+    error_msg: prohibited this profile from being saved
+

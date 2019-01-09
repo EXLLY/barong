@@ -1,7 +1,7 @@
 
 <% content_for :guide do %>
-<div class="mask-fixed">
-  <div class="mask-content">
+<div class="block-table">
+  <div class="block-table-cell">
     <div class="register-container">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -12,27 +12,31 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="form-group">
             <%= f.label :email, (t 'session.email') ,for: 'inputEmail'%>
-            <%= f.email_field :email, autofocus: true, id: 'inputEmail', autocomplete: 'email', class: 'form-control', placeholder: (t 'session.email_placeholder') %>
+            <%= f.email_field :email, autofocus: true, id: 'inputEmail', autocomplete: 'email', class: 'form-control', placeholder: (t 'session.email_placeholder'), required: true %>
           </div>
           <div class="form-group">
             <%= f.label :password, (t 'session.password'), for: 'inputPassword' %>
-            <%= f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: @minimum_password_length ? "Password (#{@minimum_password_length} characters minimum)" : (t 'session.password_placeholder') %>
+            <%= f.password_field :password, autocomplete: 'off', id: 'inputPassword', class: 'form-control', placeholder: @minimum_password_length ? "Password (#{@minimum_password_length} characters minimum)" : (t 'session.password_placeholder'), required: true %>
           </div>
-          <div class="form-group has-error has-feedback">
+          <div class="form-group">
             <%= f.label :password_confirmation, (t 'registration.confirm_password'),for: 'inputConfirmPassword' %>
-            <%= f.password_field :password_confirmation, autocomplete: 'off',id: 'inputConfirmPassword' , class: 'form-control', placeholder: (t 'registration.password_confirmation')%>
-            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <%= f.password_field :password_confirmation, autocomplete: 'off',id: 'inputConfirmPassword' , class: 'form-control', placeholder: (t 'registration.password_confirmation') ,required: true%>
+          </div>
+          <div class="form-group has-error">
             <% if devise_error_messages! %>
-            <span class="help-block"><%= devise_error_messages!%></span>
+              <span class="help-block has-error"><%= devise_error_messages!%></span>
             <% end %>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> <%=(t 'registration.agree') %> <a href="#"> <%=(t 'registration.terms') %> </a>
+              <%= f.check_box :subscribed, {checked: true} ,true, false %> <%=(t 'registration.want_receive') %>
             </label>
           </div>
           <div class="form-group">
-            <%= f.submit 'Submit', class: 'btn btn-primary btn-block' %>
+            <%= f.submit (t 'registration.signUp'), id: 'submit', class: 'btn btn-primary btn-block' %>
+          </div>
+          <div class="checkbox">
+            <label><%=(t 'registration.agree') %> <a href="#"> <%=(t 'registration.terms') %> </a><%=(t 'registration.and') %><a href="#"> <%=(t 'registration.privacy') %> </a></label>
           </div>
         <% end %>
         </div>

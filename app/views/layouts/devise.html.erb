@@ -18,10 +18,9 @@
   <%= javascript_include_tag 'gt' %>
   <%= domain_favicon_tag %>
 </head>
-<body class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
+<body class="ui-radius g-background" data-lang="<%= locale_name %>" id="<%= body_id %>">
 <%= domain_html_tag(domain_asset :header) %>
-<div class="flex-box vertical profile g-background home-index">
-
+<div class="flex-box vertical home-index">
   <%= content_for?(:header) ? yield(:header) : render('layouts/shared/header') %>
   <%= content_for?(:frame) ? yield(:frame) : render('layouts/shared/frame') %>
   <%= content_for?(:footer) ? yield(:footer) : render('layouts/shared/footer') %>

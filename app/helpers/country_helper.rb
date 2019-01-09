@@ -9,7 +9,7 @@ module CountryHelper
                         prompt: 'Select country',
                         selected: country_to_alpha3(selected_country)
                       },
-                      class: classes)
+                      class: classes, required: true)
   end
 
   def country_to_alpha3(country_code)

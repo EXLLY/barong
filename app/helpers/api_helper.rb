@@ -20,7 +20,19 @@ module ApiHelper
     headers = options.fetch(:headers, {})
     params  = options.fetch(:params, {})
     options[:token].tap { |t| headers['Authorization'] = 'Bearer ' + t if t }
-    send(method, url, params, headers)
+    # send(method, url, params, headers)
+    https = Net::HTTP.new(url)
+    https.use_ssl = true
+    case method
+    when "post"
+      req = Net::HTTP::Post.new(url.path, headers)
+    when "get"
+      req = Net::HTTP::Get.new(url.path, headers)
+    when "delete"
+      req = Net::HTTP::Delete.new(url.path, headers)
+      req.body = params.to_json
+      response = https.request(req)
+    end
   end
 
   def api_get(*args)
@@ -112,5 +124,3 @@ module ApiHelper
     Rails.configuration.x.security_configuration = config
   end
 end
-
-# RSpec.configure { |config| config.include APIHelpers }

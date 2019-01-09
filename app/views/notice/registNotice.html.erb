@@ -1,7 +1,7 @@
 
 <% content_for :guide do %>
-  <div class="mask-fixed">
-    <div class="mask-content">
+  <div class="block-table">
+    <div class="block-table-cell">
       <div class="register-container">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -22,11 +22,6 @@
                   <%= f.submit (t 'registration.resend_an_email'), class: 'btn btn-primary btn-block' %>
                 </div>
               <% end %>
-              <span class="help-block">
-                <%- flash.each do |name, msg| -%>
-                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                <%- end -%>
-              </span>
             </div>
           </div>
         </div>
