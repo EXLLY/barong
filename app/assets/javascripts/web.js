@@ -90,7 +90,7 @@ window.onload = function () {
                 // more configuration ：http://www.geetest.com/install/sections/idx-client-sdk.html#config
             }, handler1);
         }
-    });*/
+    });
 };
 
 function isaccepted(){
@@ -98,5 +98,5 @@ function isaccepted(){
         document.getElementById("submit").disabled = false;
     }else{
         document.getElementById("submit").disabled = true;
-    }
+    }*/
 }
