@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   resources :profiles,  only: %i[new create index show]
   resources :documents, only: %i[new create]
 
-  match '*path', via: :all, to: 'index#error_404'
 
   namespace :admin do
     get '/', to: 'accounts#index', as: :accounts
