@@ -3,7 +3,7 @@
 class ApplicationMailer < ActionMailer::Base
   include SkipEmails
 
-  default from: ENV.fetch('SENDER_EMAIL', 'noreply@barong.io')
+  default from: ENV.fetch('SENDER_EMAIL', 'noreply@galleon.exchange')
   layout 'mailer'
 
   def mail(options)
