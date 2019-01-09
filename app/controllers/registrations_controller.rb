@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'application', only: [:edit]
+  layout 'application', only: [:edit, :update]
 
   protected
   def after_inactive_sign_up_path_for(resource)
