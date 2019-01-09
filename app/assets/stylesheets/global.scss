@@ -148,6 +148,13 @@ footer{
   padding-top:8px;
   background-color:#092031;
 }
+footer .foot-link{
+  display: inline-block;
+  height:17px;
+  margin-right:10px;
+  color:#FFF;
+  overflow:hidden;
+}
 footer p{margin:0;}
 footer .support-24{
   display: inline-block;
@@ -165,7 +172,7 @@ footer a.sns-weibo{
   width:23px;
   height:19px;
   color:rgba(255, 255, 255, 0);
-  margin-left:15px;
+  margin-left:10px;
   overflow:hidden;
   text-indent: 999px;
   background-repeat: no-repeat;
@@ -189,6 +196,15 @@ footer a.sns-qq{
 }
 footer a.sns-weibo{
   background-image: url(asset_path('home/sns_weibo.png'));
+}
+.block-table{
+  display:table;
+  width:100%;
+  height:100%;
+}
+.block-table-cell{
+  display:table-cell;
+  vertical-align:middle;
 }
 .mask-fixed{
   position:fixed;
