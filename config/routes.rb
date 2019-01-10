@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   resources :profiles,  only: %i[new create index show]
   resources :documents, only: %i[new create]
 
-
   namespace :admin do
     get '/', to: 'accounts#index', as: :accounts
     resources :accounts, except: %i[new create] do
