@@ -3,7 +3,7 @@
 # It's for upload document for Document model
 class UploadUploader < CarrierWave::Uploader::Base
   if Rails.env.production?
-    storage :fog
+    storage :file
   else
     storage :file
   end

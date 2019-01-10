@@ -111,10 +111,10 @@ en:
     privacy: Privacy Policy
     email_activation: EMAIL ACTIVATION
     sent_to: An activation email has been sent to
-    if_you: If you are using Gmail, it might take longer to
-    receive: receive the email, please check your Spam or Trash
-    folders: folders. If you still didn't receive the email, click the
-    resend: Resend an email link.
+    if_you: Please go to you email inbox and click the activation link
+    receive: inside to complete account registration. Kindly check your
+    folders: spam inbox if you don't see the activation email for a long
+    resend: time. Or try resending a new email by clicking the button below.
     resend_an_email: RESEND AN EMAIL
     want_receive: I want to receive updates and marketing communications from Galleon
   password:
@@ -124,7 +124,7 @@ en:
     new_password: New password
     confirm_new_password: Confirm new password
     placeholder_new_password: Please input your new password
-    placeholder_confirm_new_password: Please confirm your new password
+    placeholder_confirm_new_password: Please confirm new password
     old_password: Old Password
     enter_old_password: Enter old password
     enter_new_password: Enter new password
@@ -135,20 +135,20 @@ en:
     overview: Overview
     security: Security
     kyc: KYC Verification
-    unverified: Unverified
+    unverified: Pending KYC
     verified: Verified
     email_verification: Email Verification
-    google_2_step: google 2-step
-    2_step: 2-Step
+    google_2_step: Google 2FA
+    2_step: Google 2FA
     google_authenticator: Google Authenticator
     disable: Disabled
     unbind: Unbind
-    enable: Enable
+    enable: Enabled
     withdrawal_limit: 24h Withdraw Limit
     increase_limit: Increase Limit
     completed: Completed
     complete_kyc: Sumbit your KYC information
-    Google_2_Step: Google 2-Step
+    Google_2_Step: Google 2-Step Verification
     settings_incomplete: Settings Incomplete
     install: Install Google Authenticator
     app_store: Go to the app store to
@@ -187,7 +187,7 @@ en:
     doc_number: ID/Passport number
     number: AB123456
     doc_upload: Document upload
-    contact_email: contact@galleon.exchange
+    contact_email: support@galleon.exchange
     contact_us_before: Please contact us at 
     contact_us_after: . Our customer service will help you with the KYC verification.
     safety: To ensure security of your account.Galleon strongly suggest that DO NOT uninstall Google Authenticator or unbind Google 2-step verification,
@@ -197,4 +197,6 @@ en:
     document_upload: Document upload
     reviewed: Your document is being reviewed
     error_msg: prohibited this profile from being saved
+    not_started: Not started
+    submitted: Documents submitted, pending verification
 

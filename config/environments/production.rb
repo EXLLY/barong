@@ -118,8 +118,7 @@ Rails.application.configure do
     ssl:                  false,
     tls:                  false,
     openssl_verify_mode:  false,
-    enable_starttls:      false,
-    enable_starttls_auto: false
+    enable_starttls:      false
   }
 
   if ENV['ROOT_DOMAIN']
