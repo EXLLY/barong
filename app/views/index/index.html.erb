@@ -65,16 +65,14 @@
               <div class="col-md-3"><%= (t 'profiles.kyc') %>:</div>
               <div class="col-md-3"><%= (t 'profiles.completed') %>
                 <% if current_account.level == 3 %>
-                  100%
+                  <%= (t 'profiles.verified') %>
                 <% else
                      if current_account.profile
                         if current_account.documents.count>0 && current_account.labels.third.value == 'pending' %>
-                          75%
-                      <%else %>
-                        50%
+                          <%= (t 'profiles.submitted') %>
                     <%  end
                      else %>
-                      0%
+                       <%= (t 'profiles.not_started') %>
                     <%end
                   end %>
               </div>
