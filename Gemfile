@@ -46,6 +46,7 @@ gem 'discard', '~> 1.0'
 gem 'sentry-raven', '~> 2.7', require: false
 gem 'rubyzip',      '~> 1.2.2', require: false
 gem 'recaptcha'
+gem 'figaro'
 
 group :development, :test do
   gem 'listen',     '~> 3.1'
@@ -71,5 +72,4 @@ end
 
 group :development do
   gem 'grape_on_rails_routes', '~> 0.3.2'
-  gem 'figaro'
 end
