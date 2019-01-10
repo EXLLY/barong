@@ -111,7 +111,7 @@ en:
     privacy: Privacy Policy
     email_activation: EMAIL ACTIVATION
     sent_to: An activation email has been sent to
-    if_you: If you are using Gmail of it is taking a long time to
+    if_you: If you are using Gmail, it might take longer to
     receive: receive the email, please check your Spam or Trash
     folders: folders. If you still didn't receive the email, click the
     resend: Resend an email link.
