@@ -53,9 +53,13 @@
             </div>
             <div class="row">
               <div class="col-md-3"><%= (t 'profiles.withdrawal_limit') %>:</div>
-              <div class="col-md-3">2BTC</div>
-              <div class="col-md-3">&nbsp;</div>
-              <div class="col-md-3 text-right"><a href="#"><%= (t 'profiles.increase_limit') %></a></div>
+              <% if current_account.level == 3 %>
+                <div class="col-md-3">Unlimited</div>
+              <%else %>
+                <div class="col-md-3">2BTC</div>
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-3 text-right"><%=link_to (t 'profiles.increase_limit'), profiles_path(@profile) %></div>
+              <%end %>
             </div>
             <div class="row">
               <div class="col-md-3"><%= (t 'profiles.kyc') %>:</div>
@@ -75,7 +79,9 @@
                   end %>
               </div>
               <div class="col-md-3">&nbsp;</div>
-              <div class="col-md-3 text-right"><%=link_to (t 'profiles.complete_kyc'), profiles_path(@profile) %></div>
+              <% if current_account.level < 3%>
+                <div class="col-md-3 text-right"><%=link_to (t 'profiles.complete_kyc'), profiles_path(@profile) %></div>
+              <% end %>
             </div>
           </div>
         </div>

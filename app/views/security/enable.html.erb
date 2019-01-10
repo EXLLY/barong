@@ -47,7 +47,7 @@
                   <%= form_tag(security_confirm_path) do  %>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
+                        <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', autofocus: true, required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
                       </div>
                       <div class="form-group">
                         <%= submit_tag (t 'profiles.submit'), class: 'btn btn-primary btn-block', data: { confirm: 'Do you agree? If you lost your device you will need to verify your access' } %>

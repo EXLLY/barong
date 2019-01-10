@@ -10,12 +10,13 @@
           <div class="panel-body">
             <div class="find-password">
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-             <%= devise_error_messages! %>
-            <div class="form-group">
+            <div class="form-group has-error has-feedback">
                 <%= f.label :email, for:'inputEmail' %>
                 <%= f.email_field :email, autofocus: true, id:'inputEmail', autocomplete: 'email', class: 'form-control', placeholder: (t 'session.email_placeholder'), required: true %>
+              <% if devise_error_messages! %>
+                <span class="help-block"><%= devise_error_messages!%></span>
+              <% end %>
             </div>
-
             <div class="form-group mask-form-button">
               <%= f.submit (t 'password.submit') , class: 'btn btn-primary btn-block' %>
             </div>
