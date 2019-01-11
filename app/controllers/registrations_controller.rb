@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   layout 'application', only: [:edit, :update]
   prepend_before_action :captcha_verify, if: :not_verified?, only: :create
-
+  prepend_before_action :otp_verify, if: :otp_enabled?, only: :update
   def check_captcha
     unless captcha_verified?
     end
@@ -25,4 +25,19 @@ private
       redirect_to(action: :new)
     end
   end
+
+  def otp_enabled?
+    current_account.otp_enabled
+  end
+
+  def otp_verify
+    if params[:otp]
+      return if Vault::TOTP.validate?(current_account.uid, params[:otp])
+      set_flash_message! :alert, :wrong_otp_code
+      redirect_to edit_account_registration_path
+    end
+  rescue Vault::HTTPClientError => e
+    redirect_to edit_account_registration_path, alert: "Vault error: #{e.errors.join}"
+  end
+
 end
