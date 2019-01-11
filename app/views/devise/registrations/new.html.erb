@@ -33,7 +33,7 @@
             </label>
           </div>
           <div class="form-group">
-            <%= f.submit (t 'registration.signUp'), id: 'submit', class: 'btn btn-primary btn-block' %>
+            <%= invisible_recaptcha_tags text: (t 'registration.signUp'), id: 'submit-btn', class: 'btn btn-primary btn-block' %>
           </div>
           <div class="checkbox">
             <label><%=(t 'registration.agree') %> <a href="https://support.galleon.exchange/hc/en-us/articles/360015406214-Term-of-Services"> <%=(t 'registration.terms') %> </a><%=(t 'registration.and') %><a href="https://support.galleon.exchange/hc/en-us/articles/360015476393-Privacy-Policy"> <%=(t 'registration.privacy') %> </a></label>
