@@ -90,8 +90,8 @@ en:
     deposit: Deposit
     withdraw: Withdraw
   session:
-    secure_url: Please confirm the URL https://galleon.exchange
-    secure_lock: Secure | https://www.galleon.exchange
+    secure_url: Please confirm the URL https://auth.galleon.exchange/
+    secure_lock: Secure | https://auth.galleon.exchange/
     email: Email
     password: Password
     email_placeholder: Please input the email
