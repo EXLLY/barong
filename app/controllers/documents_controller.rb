@@ -30,6 +30,6 @@ private
 
   def document_params
     params.require(:document)
-          .permit(:doc_type, :doc_number, :doc_expire, :upload)
+          .permit(:doc_type, :doc_number, :doc_expire, :upload, :photo)
   end
 end
