@@ -18,7 +18,7 @@
               <div class="col-md-3 text-center">
                 <h5> <%= current_account.email.gsub(/.{0,3}@.{0,3}/,'***@***') %></h5>
                 <%if current_account.level == 3%>
-                  <span class="warning"><%= (t 'profiles.verified') %></span>
+                  <span class="ok"><%= (t 'profiles.verified') %></span>
                 <%else %>
                   <span class="warning"><%= (t 'profiles.unverified') %></span>
                 <%end %>

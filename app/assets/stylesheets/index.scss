@@ -54,6 +54,18 @@
   background-position: 5px 50%;
   background-size: auto 70%;
 }
+.overview-index .ok{
+  display: inline-block;
+  padding:1px 10px 1px 25px;
+  background-color:#e0e0e0;
+  color:#707277;
+  font-size:12px;
+  border-radius:5em;
+  background-image: url(asset_path('profile/ok.png'));
+  background-repeat: no-repeat;
+  background-position: 5px 50%;
+  background-size: auto 70%;
+}
 .overview-index .text-center{
   position:relative;
   padding-bottom:20px;
