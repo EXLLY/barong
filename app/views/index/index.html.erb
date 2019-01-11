@@ -18,7 +18,7 @@
               <div class="col-md-3 text-center">
                 <h5> <%= current_account.email.gsub(/.{0,3}@.{0,3}/,'***@***') %></h5>
                 <%if current_account.level == 3%>
-                  <span class="warning"><%= (t 'profiles.verified') %></span>
+                  <span class="ok"><%= (t 'profiles.verified') %></span>
                 <%else %>
                   <span class="warning"><%= (t 'profiles.unverified') %></span>
                 <%end %>
@@ -38,7 +38,7 @@
               <div class="col-md-3"><%= (t 'profiles.google_authenticator') %></div>
               <div class="col-md-3">
                 <% if current_account.otp_enabled %>
-                  <span><%= (t 'profiles.enable') %></span>
+                  <span class="enable"><%= (t 'profiles.enable') %></span>
                 <%else %>
                   <span class="disable"><%= (t 'profiles.disable') %></span>
                 <%end %>
@@ -63,7 +63,7 @@
             </div>
             <div class="row">
               <div class="col-md-3"><%= (t 'profiles.kyc') %>:</div>
-              <div class="col-md-3"><%= (t 'profiles.completed') %>
+              <div class="col-md-3">
                 <% if current_account.level == 3 %>
                   <%= (t 'profiles.verified') %>
                 <% else

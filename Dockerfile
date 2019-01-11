@@ -17,7 +17,7 @@ ENV RAILS_ENV=${RAILS_ENV} \
     DEVISE_SECRET_KEY='changeme' \
     SECRET_KEY_BASE='changeme' \
     JWT_SHARED_SECRET_KEY='changeme'
-    
+
 RUN groupadd -r app --gid=1000 \
  && useradd -r -m -g app -d /home/app --uid=1000 app \
  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \

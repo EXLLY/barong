@@ -3,13 +3,13 @@
 class ProfileReviewMailer < ApplicationMailer
   def approved(account)
     @profile = account.profile
-    @app_name = ENV.fetch('APP_NAME', 'Barong')
+    @app_name = ENV.fetch('APP_NAME', 'Galleon')
     mail(to: account.email, subject: 'Your identity was approved')
   end
 
   def rejected(account)
     @profile = account.profile
-    @app_name = ENV.fetch('APP_NAME', 'Barong')
+    @app_name = ENV.fetch('APP_NAME', 'Galleon')
     mail(to: account.email, subject: 'Your identity was rejected')
   end
 end

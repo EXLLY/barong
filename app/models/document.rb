@@ -5,8 +5,9 @@
 #
 class Document < ApplicationRecord
   mount_uploader :upload, UploadUploader
+  mount_uploader :photo, UploadUploader
 
-  TYPES = ['Passport', 'Identity card', 'Driver license', 'Utility Bill'].freeze
+  TYPES = ['Passport', 'Identity card'].freeze
   STATES = %w[verified pending rejected].freeze
 
   scope :kept, -> { joins(:account).where(accounts: { discarded_at: nil }) }
@@ -45,7 +46,7 @@ private
 end
 
 # == Schema Information
-# Schema version: 20180907133821
+# Schema version: 20190111091304
 #
 # Table name: documents
 #
@@ -58,6 +59,7 @@ end
 #  metadata   :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  photo      :string(255)
 #
 # Indexes
 #
