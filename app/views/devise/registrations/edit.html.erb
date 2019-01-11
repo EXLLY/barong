@@ -39,9 +39,13 @@
                       <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control text-center', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: '' %>
                     </div>
                   <% end %>
-                  <% if devise_error_messages! %>
-                    <span class="help-block"><%= devise_error_messages!%></span>
-                  <% end %>
+                  <div class="form-group has-error">
+                    <span class="help-block">
+                      <%- flash.each do |name, msg| -%>
+                      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                      <%- end -%>
+                    </span>
+                  </div>
                   <div class="form-group google-unbind-btn">
                     <%= f.submit  "SUBMIT", class: "btn btn-primary btn-block" %>
                   </div>
