@@ -200,4 +200,8 @@ en:
     not_started: Not started
     submitted: Documents submitted, pending verification
     photo_upload: Photo upload
-
+    notice: Please provide a photo of you holding your Identity card. In the same picture, make a reference to Galleon and today’s date displayed. Make sure your face is clearly visible and that all Identity card details are clearly readable.
+    face: Face clearly visible
+    photo: Photo ID clearly visible
+    note: Note with word "Galleon"
+    date: Note with today's date

@@ -515,3 +515,11 @@
 .profile-kyc-link p{
   text-align: center;
 }
+.profile-kyc-form-wrap .file-upload-photo{
+  height:200px;
+  border-color: #dddddd;
+  background-color: #fafafa;
+  background-image: url(asset_path('profile/photo.jpg'));
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
