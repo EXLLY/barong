@@ -61,6 +61,14 @@ a{
   background-position: 0 50%;
   background-size: auto 70%;
 }
+.enable{
+  display: inline-block;
+  padding-left:20px;
+  background-image: url(asset_path('profile/ok.png'));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: auto 70%;
+}
 .form-control{
   background-color:#fafafa;
   box-shadow: none;

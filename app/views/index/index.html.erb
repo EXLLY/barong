@@ -38,7 +38,7 @@
               <div class="col-md-3"><%= (t 'profiles.google_authenticator') %></div>
               <div class="col-md-3">
                 <% if current_account.otp_enabled %>
-                  <span><%= (t 'profiles.enable') %></span>
+                  <span class="enable"><%= (t 'profiles.enable') %></span>
                 <%else %>
                   <span class="disable"><%= (t 'profiles.disable') %></span>
                 <%end %>
