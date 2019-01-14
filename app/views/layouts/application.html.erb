@@ -7,15 +7,11 @@
   <%= render 'layouts/shared/sentry' %>
   <%= csrf_meta_tags %>
 
-  <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
-  <%= stylesheet_link_tag stylesheet, media: 'all' %>
-  <%= stylesheet_link_tag    'web', media: 'all' %>
   <%= stylesheet_link_tag 'bootstrap.min'%>
   <%= stylesheet_link_tag 'global' %>
   <%= stylesheet_link_tag 'index'%>
   <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
   <%= javascript_include_tag 'web' %>
-  <%= javascript_include_tag 'gt' %>
   <%= domain_favicon_tag %>
 </head>
 <body  data-lang="<%= locale_name %>" id="<%= body_id %>">

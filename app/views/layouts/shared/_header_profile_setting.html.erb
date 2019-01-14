@@ -1,4 +1,6 @@
-<!--<a class="menu-orders" href="<%#= ENV['API_CORS_ORIGINS']+'/history/orders'%>"><%#= t('header.order_history')%></a>-->
-<!--<a class="menu-funds" href="<%#= ENV['API_CORS_ORIGINS']+'/funds'%>"><%#= t('header.funds')%></a>-->
+<a class="menu-orders" href="<%=index_path %>"><%= t('header.home')%></a>
+<a class="menu-orders" href="<%=ENV['API_CORS_ORIGINS']+'/trading/ethgrin' if current_account%>"><%= t('header.market')%></a>
+<a class="menu-orders" href="<%= ENV['API_CORS_ORIGINS']+'/history/orders'%>"><%= t('header.order_history')%></a>
+<a class="menu-funds" href="<%= ENV['API_CORS_ORIGINS']+'/funds'%>"><%= t('header.funds')%></a>
 <a class="menu-account" href="<%= index_path %>"><%= current_account.email.gsub(/.{0,3}@.{0,3}/,'***@***') %></a>
 <a class="menu-logout" href="<%= accounts_exit_peatio_path %>"><%= t('header.signout') %></a>
