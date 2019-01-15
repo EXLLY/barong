@@ -143,7 +143,7 @@ en:
     google_authenticator: Google Authenticator
     disable: Disabled
     unbind: Unbind
-    enable: Enabled
+    enable: Enable
     withdrawal_limit: 24h Withdraw Limit
     increase_limit: Increase Limit
     completed: Completed
